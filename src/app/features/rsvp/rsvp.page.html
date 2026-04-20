@@ -1,0 +1,23 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+
+    <input placeholder="Name" formControlName="name" />
+    <input placeholder="Email" formControlName="email" />
+
+    <select formControlName="attending">
+        <option [ngValue]="true">Attending</option>
+        <option [ngValue]="false">Not Attending</option>
+    </select>
+
+    <input type="number" placeholder="Guests" formControlName="guests" />
+
+    <textarea placeholder="Message" formControlName="message"></textarea>
+
+    <button type="submit" [disabled]="form.invalid || loading()">
+        {{ loading() ? 'Submitting...' : 'Submit RSVP' }}
+    </button>
+
+</form>
+
+@if (success()) {
+    <p>✅ RSVP submitted!</p>
+}

@@ -1,37 +1,103 @@
-<form [formGroup]="form" (ngSubmit)="submit()" class="form">
-    <h2 class="font-serif">RSVP</h2>
+<section class="rsvp-container">
 
-    <input type="text" formControlName="name" placeholder="Your Name" />
+    @if (invite(); as i) {
 
-    <input type="email" formControlName="email" placeholder="Your Email" />
+        @if (isSubmitted()) {
+            <div class="rsvp-card success">
+                <h2>Thank you 💖</h2>
+                <p>You have already RSVP’d.</p>
+            </div>
+        } @else {
 
-    <label>
-        <input type="checkbox" formControlName="attending" />
-        Will you attend?
-    </label>
+            <div class="rsvp-card">
 
-    <input
-            type="number"
-            formControlName="guests"
-            placeholder="Number of Guests"
-    />
+                <h2 class="title">Hi {{ i.name }} 👋</h2>
 
-    <textarea
-            formControlName="message"
-            placeholder="Message (optional)"
-    ></textarea>
+                <p class="seats">
+                    You are reserved <strong>{{ i.guests }}</strong> seat(s)
+                </p>
 
-    <!-- Honeypot -->
-    <input type="text" formControlName="honeypot" hidden />
+                <!-- Attending -->
+                <div class="field">
+                    <label>Will you attend?</label>
 
-    <button type="submit" [disabled]="loading()">
-        {{ loading() ? 'Sending...' : 'Submit RSVP' }}
-    </button>
+                    <div class="toggle">
+                        <button
+                                [class.active]="attending() === true"
+                                (click)="attending.set(true)">
+                            Yes
+                        </button>
 
-    @if(success()){
-        <p>✅ Thank you for your response!</p>
+                        <button
+                                [class.active]="attending() === false"
+                                (click)="attending.set(false)">
+                            No
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Guests -->
+                @if (attending() === true && guestCount() > 0) {
+                    <div class="field">
+                        <label>Guest Name(s)</label>
+
+                        @for (name of guestNames(); track $index; let i = $index) {
+                            <input
+                                    type="text"
+                                    [value]="name"
+                                    (input)="updateGuest(i, $any($event.target).value)"
+                                    [placeholder]="'Guest ' + (i + 1)"
+                            />
+                        }
+                    </div>
+                }
+
+                <!-- Message -->
+                <div class="field">
+                    <label>Message (optional)</label>
+                    <textarea
+                            [value]="message()"
+                            (input)="message.set($any($event.target).value)">
+          </textarea>
+                </div>
+
+                <!-- Contact -->
+                <div class="field">
+                    <label>Contact Info (optional)</label>
+                    <input
+                            type="text"
+                            placeholder="Email or mobile"
+                            [value]="contactInfo()"
+                            (input)="contactInfo.set($any($event.target).value)"
+                    />
+                </div>
+
+                <!-- Error -->
+                @if (error()) {
+                    <p class="error">{{ error() }}</p>
+                }
+
+                <!-- Submit -->
+                <button
+                        class="submit-btn"
+                        [disabled]="!canSubmit()"
+                        (click)="submit()">
+
+                    @if (loading()) {
+                        Submitting...
+                    } @else {
+                        Submit RSVP
+                    }
+
+                </button>
+
+            </div>
+        }
+
+    } @else {
+        <div class="rsvp-card">
+            <p>Loading...</p>
+        </div>
     }
-    @else {
-        <p>{{ error() }}</p>
-    }
-</form>
+
+</section>

@@ -1,59 +1,60 @@
-import {Component, inject, signal} from "@angular/core";
-import {FormBuilder, ReactiveFormsModule} from "@angular/forms";
-import {createRsvpForm} from "./rsvp.form";
-import {RsvpService} from "../../core/services/rsvp.service";
-import {HeroSection} from "./sections/hero/hero-section";
-import {EntourageSection} from "./sections/entourage/entourage-section";
-import {LocationSection} from "./sections/location/location-section";
-import {RsvpForm} from "./sections/rsvp-form/rsvp-form";
-import {BottomNav} from "./components/bottom-nav/bottom-nav";
+import { Component, inject, signal, effect } from "@angular/core";
+import { RsvpService } from "../../core/services/rsvp.service";
+import { HeroSection } from "./sections/hero/hero-section";
+import { EntourageSection } from "./sections/entourage/entourage-section";
+import { LocationSection } from "./sections/location/location-section";
+import { RsvpForm } from "./sections/rsvp-form/rsvp-form";
+import { BottomNav } from "./components/bottom-nav/bottom-nav";
+import {Invite} from "./rsvp.types";
 
 @Component({
   selector: "app-rsvp",
-  imports: [ReactiveFormsModule,HeroSection,EntourageSection,LocationSection,RsvpForm,BottomNav],
+  standalone: true,
+  imports: [
+    HeroSection,
+    EntourageSection,
+    LocationSection,
+    RsvpForm,
+    BottomNav
+  ],
   templateUrl: "./rsvp.page.html",
   styleUrl: "./rsvp.page.scss",
 })
 export class RsvpPage {
-  private fb = inject(FormBuilder);
   private service = inject(RsvpService);
 
+  // 🔥 GLOBAL STATE
+  invite = signal<Invite | null>(null);
   loading = signal(false);
-  success = signal(false);
+  error = signal<string | null>(null);
 
-  form = createRsvpForm(this.fb);
+  constructor() {
+    this.loadInvite();
+  }
 
-  submit() {
-    if (this.form.invalid) return;
+  onSubmitted() {
+    this.invite.update(i =>
+        i ? { ...i, used: true } : i
+    );
+  }
 
-    console.log('Payload:', this.form.getRawValue());
+  private loadInvite() {
+    const code = new URLSearchParams(window.location.search).get("code");
 
-    // temp simulation
+    if (!code) {
+      this.error.set("Missing invite code");
+      return;
+    }
+
     this.loading.set(true);
 
-    this.service.submit(this.form.getRawValue())
-        .subscribe({
-          next: (res) => {
-            if (!res.success) {
-              alert(res.error || 'Submission failed');
-              return;
-            }
+    this.service.getInvite(code).then(res => {
+      if (!res.success) {
+        console.error(res.error);
+        return;
+      }
 
-            this.success.set(true);
-
-            this.form.reset({
-              name: '',
-              email: '',
-              attending: true,
-              guests: 1,
-              message: '',
-              honeypot: ''
-            });
-          },
-          error: () => {
-            alert('Network error');
-          },
-          complete: () => this.loading.set(false)
-        });
+      this.invite.set(res.data ?? null);
+    });
   }
 }

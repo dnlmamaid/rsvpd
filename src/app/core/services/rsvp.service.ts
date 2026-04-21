@@ -1,34 +1,44 @@
-import { Injectable, inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { RsvpPayload } from '../../features/rsvp/rsvp.types';
-import { catchError, retry, throwError } from 'rxjs';
+import {Injectable, inject} from '@angular/core';
+import {HttpClient, HttpParams} from '@angular/common/http';
+import {Invite, SubmitRsvpPayload} from '../../features/rsvp/rsvp.types';
+import {Observable} from 'rxjs';
 
-@Injectable({ providedIn: 'root' })
+interface ApiResponse<T = any> {
+    success: boolean;
+    data?: T;
+    error?: string;
+}
+@Injectable({providedIn: 'root'})
 export class RsvpService {
     private http = inject(HttpClient);
 
-    private apiUrl = 'https://script.google.com/macros/s/AKfycbwz26clf_l0L8alC4awVk6kEbygSNdebUI-55YkPqeA8St4sCoRA5ZTu6mk62PZoRa2Mg/exec';
+    private readonly apiUrl = 'https://script.google.com/macros/s/AKfycbzVFSQI01sjGnEee5d-jun8u8doDVJe4zgOCjneJAnkThgRdcrWhLoLEwmn0E_mRGh9Jg/exec';
 
-    submit(payload: RsvpPayload) {
-
-        const body = new URLSearchParams();
-
-        Object.entries(payload).forEach(([key, value]) => {
-            body.set(key, String(value ?? ''));
-        });
-
-        return this.http.post<{ success: boolean; error?: string }>(
-            this.apiUrl,
-            body.toString(),
-            {
-                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-            }
-        ).pipe(
-            retry(1),
-            catchError(err => {
-                console.error('API error:', err);
-                return throwError(() => err);
-            })
-        )
+    /**
+     * GET invite by code
+     */
+    getInvite(code: string): Promise<ApiResponse<Invite>> {
+        return fetch(`${this.apiUrl}?code=${code}`)
+            .then(res => res.json());
     }
+
+    /**
+     * POST RSVP submission
+     */
+    submit(payload: SubmitRsvpPayload): Observable<ApiResponse> {
+        let body = new HttpParams()
+            .set('code', payload.code ?? '')
+            .set('attending', String(payload.attending))
+            .set('guestNames', payload.guestNames ?? '')
+            .set('message', payload.message ?? '')
+            .set('contactInfo', payload.contactInfo ?? '')
+            .set('honeypot', '');
+
+        return this.http.post<ApiResponse>(this.apiUrl, body.toString(), {
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        });
+    }
+
 }

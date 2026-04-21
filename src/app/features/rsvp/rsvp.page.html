@@ -1,4 +1,5 @@
 <div class="container">
+
     <section id="hero">
         <app-hero-section />
     </section>
@@ -12,8 +13,22 @@
     </section>
 
     <section id="rsvp">
-        <app-rsvp-form />
+
+        @if (loading()) {
+            <p class="center">Loading your invite...</p>
+        }
+
+        @if (error()) {
+            <p class="error">{{ error() }}</p>
+        }
+
+        @if (invite(); as inviteData) {
+            <app-rsvp-form [invite]="inviteData"
+                           (submitted)="onSubmitted()"/>
+        }
+
     </section>
+
 </div>
 
 <app-bottom-nav />

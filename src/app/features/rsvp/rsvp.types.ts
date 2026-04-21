@@ -1,8 +1,18 @@
-export interface RsvpPayload {
+export interface Invite {
+    code: string;
     name: string;
-    email: string;
-    attending: boolean;
+    contact: string;
+    attending: string | null;
     guests: number;
+    guestNames: string;
+    message: string;
+    used: boolean;
+}
+
+export interface SubmitRsvpPayload {
+    code: string;
+    attending: boolean | null;
+    guestNames: string;
     message?: string;
-    honeypot?: string;
+    contactInfo?: string;
 }

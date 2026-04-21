@@ -1,103 +1,102 @@
 <section class="rsvp-container">
 
-    @if (invite(); as i) {
+  @if (invite(); as i) {
 
-        @if (isSubmitted()) {
-            <div class="rsvp-card success">
-                <h2>Thank you 💖</h2>
-                <p>You have already RSVP’d.</p>
-            </div>
-        } @else {
+    @if (isSubmitted()) {
+      <div class="rsvp-card success">
+        <h2>Thank you 💖</h2>
+        <p>You have already RSVP’d.</p>
+      </div>
+    } @else {
 
-            <div class="rsvp-card">
+      <div class="rsvp-card">
 
-                <h2 class="title">Hi {{ i.name }} 👋</h2>
+        <h2 class="title">Hi {{ i.name }} 👋</h2>
 
-                <p class="seats">
-                    You are reserved <strong>{{ i.guests }}</strong> seat(s)
-                </p>
+        <p class="seats">
+          You are reserved <strong>{{ i.guests }}</strong> seat(s)
+        </p>
 
-                <!-- Attending -->
-                <div class="field">
-                    <label>Will you attend?</label>
+        <!-- Attending -->
+        <div class="field">
+          <label>Will you attend?</label>
 
-                    <div class="toggle">
-                        <button
-                                [class.active]="attending() === true"
-                                (click)="attending.set(true)">
-                            Yes
-                        </button>
+          <div class="toggle">
+            <button
+              [class.active]="attending() === true"
+              (click)="attending.set(true)">
+              Yes
+            </button>
 
-                        <button
-                                [class.active]="attending() === false"
-                                (click)="attending.set(false)">
-                            No
-                        </button>
-                    </div>
-                </div>
+            <button
+              [class.active]="attending() === false"
+              (click)="attending.set(false)">
+              No
+            </button>
+          </div>
+        </div>
 
-                <!-- Guests -->
-                @if (attending() === true && guestCount() > 0) {
-                    <div class="field">
-                        <label>Guest Name(s)</label>
+        <!-- Guests -->
+        @if (showGuestInputs()) {
+          <div class="field">
+            <label>Guest Name(s)</label>
 
-                        @for (name of guestNames(); track $index; let i = $index) {
-                            <input
-                                    type="text"
-                                    [value]="name"
-                                    (input)="updateGuest(i, $any($event.target).value)"
-                                    [placeholder]="'Guest ' + (i + 1)"
-                            />
-                        }
-                    </div>
-                }
-
-                <!-- Message -->
-                <div class="field">
-                    <label>Message (optional)</label>
-                    <textarea
-                            [value]="message()"
-                            (input)="message.set($any($event.target).value)">
+            @for (name of guestNames(); track $index; let i = $index) {
+              <input
+                type="text"
+                [value]="name"
+                (input)="updateGuest(i, $any($event.target).value)"
+                [placeholder]="'Guest ' + (i + 1)"
+              />
+            }
+          </div>
+        }
+        <!-- Message -->
+        <div class="field">
+          <label>Message (optional)</label>
+          <textarea
+            [value]="message()"
+            (input)="message.set($any($event.target).value)">
           </textarea>
-                </div>
+        </div>
 
-                <!-- Contact -->
-                <div class="field">
-                    <label>Contact Info</label>
-                    <input
-                            type="text"
-                            placeholder="Email or mobile"
-                            [value]="contactInfo()"
-                            (input)="contactInfo.set($any($event.target).value)"
-                    />
-                </div>
+        <!-- Contact -->
+        <div class="field">
+          <label>Contact Info</label>
+          <input
+            type="text"
+            placeholder="Email or mobile"
+            [value]="contactInfo()"
+            (input)="contactInfo.set($any($event.target).value)"
+          />
+        </div>
 
-                <!-- Error -->
-                @if (error()) {
-                    <p class="error">{{ error() }}</p>
-                }
-
-                <!-- Submit -->
-                <button
-                        class="btn btn-primary submit-btn"
-                        [disabled]="!canSubmit()"
-                        (click)="submit()">
-
-                    @if (loading()) {
-                        Submitting...
-                    } @else {
-                        Submit RSVP
-                    }
-
-                </button>
-
-            </div>
+        <!-- Error -->
+        @if (error()) {
+          <p class="error">{{ error() }}</p>
         }
 
-    } @else {
-        <div class="rsvp-card">
-            <p>Loading...</p>
-        </div>
+        <!-- Submit -->
+        <button
+          class="btn btn-primary submit-btn"
+          [disabled]="!canSubmit()"
+          (click)="submit()">
+
+          @if (loading()) {
+            Submitting...
+          } @else {
+            Submit RSVP
+          }
+
+        </button>
+
+      </div>
     }
+
+  } @else {
+    <div class="rsvp-card">
+      <p>Loading...</p>
+    </div>
+  }
 
 </section>

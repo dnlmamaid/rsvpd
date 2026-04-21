@@ -1,7 +1,15 @@
-import {Component, input, signal, computed, effect, inject, output} from '@angular/core';
+import {
+  Component,
+  computed,
+  effect,
+  inject,
+  input,
+  output,
+  signal
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RsvpService } from '../../../../core/services/rsvp.service';
-import {Invite} from "../../rsvp.types";
+import { Invite } from '../../rsvp.types';
 
 @Component({
   selector: 'app-rsvp-form',
@@ -14,9 +22,9 @@ export class RsvpForm {
   private service = inject(RsvpService);
 
   invite = input<Invite | null>(null);
-
   submitted = output<void>();
 
+  // 🔥 UI state
   attending = signal<boolean | null>(null);
   guestNames = signal<string[]>([]);
   message = signal('');
@@ -26,34 +34,52 @@ export class RsvpForm {
   success = signal(false);
   error = signal<string | null>(null);
 
+  // 🔥 derived
   guestCount = computed(() => this.invite()?.guests ?? 0);
+
+  showGuestInputs = computed(() =>
+    this.attending() === true && this.guestCount() > 1
+  );
+
   isSubmitted = computed(() => this.invite()?.used === true);
 
   canSubmit = computed(() =>
-      this.attending() !== null &&
-      !this.isSubmitted() &&
-      !this.loading()
+    this.attending() !== null &&
+    !this.isSubmitted() &&
+    !this.loading()
   );
 
-  // 🔁 init guests
+  // 🔥 initialize guests ONCE per invite
+  private lastCode = '';
+
   initGuestsEffect = effect(() => {
     const invite = this.invite();
     if (!invite) return;
 
-    const count = invite.guests ?? 0;
-    const arr = Array(count).fill('');
+    // prevent re-initializing if same invite
+    if (this.lastCode === invite.code) return;
 
-    if (count > 0) {
-      arr[0] = invite.name;
+    this.lastCode = invite.code;
+
+    const count = invite.guests ?? 0;
+
+    if (count <= 1) {
+      this.guestNames.set([]);
+      return;
     }
+
+    const arr = Array(count).fill('');
+    arr[0] = invite.name;
 
     this.guestNames.set(arr);
   });
 
   updateGuest(index: number, value: string) {
-    const copy = [...this.guestNames()];
-    copy[index] = value;
-    this.guestNames.set(copy);
+    this.guestNames.update(list => {
+      const copy = [...list];
+      copy[index] = value;
+      return copy;
+    });
   }
 
   submit() {
@@ -68,7 +94,8 @@ export class RsvpForm {
     const payload = {
       code: invite.code,
       attending: this.attending(),
-      guestNames: this.guestNames().join(','),
+      guestNames:
+        this.guestCount() > 1 ? this.guestNames().join(',') : '',
       message: this.message(),
       contactInfo: this.contactInfo()
     };
@@ -83,8 +110,12 @@ export class RsvpForm {
         this.success.set(true);
         this.submitted.emit();
       },
-      error: () => this.error.set('Network error'),
-      complete: () => this.loading.set(false)
+      error: () => {
+        this.error.set('Network error');
+      },
+      complete: () => {
+        this.loading.set(false);
+      }
     });
   }
 }

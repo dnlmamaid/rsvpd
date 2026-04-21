@@ -1,0 +1,49 @@
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  padding: 0.6rem 0;
+
+  background: rgba(255, 222, 173, 0.25);
+  backdrop-filter: blur(12px);
+
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+
+  button {
+    background: none;
+    border: none;
+    padding: 0.4rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    opacity: 0.5;
+    transition: all 0.3s ease;
+
+    lucide-icon {
+      width: 22px;
+      height: 22px;
+      stroke-width: 1.5;
+    }
+
+    &.active {
+      opacity: 1;
+      transform: translateY(-2px);
+    }
+    &.active::after{
+      content: '';
+      width: 4px;
+      height: 4px;
+      margin-top: 4px;
+      border-radius: 50%;
+      background: black;
+    }
+  }
+}

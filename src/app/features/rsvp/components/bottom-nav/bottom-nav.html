@@ -1,0 +1,17 @@
+<nav class="bottom-nav">
+    <button (click)="scrollTo('hero')" [class.active]="active() === 'hero'">
+        <lucide-icon name="house"></lucide-icon>
+    </button>
+
+    <button (click)="scrollTo('entourage')" [class.active]="active() === 'entourage'">
+        <lucide-icon name="users"></lucide-icon>
+    </button>
+
+    <button (click)="scrollTo('location')" [class.active]="active() === 'location'">
+        <lucide-icon name="map-pin"></lucide-icon>
+    </button>
+
+    <button (click)="scrollTo('rsvp')" [class.active]="active() === 'rsvp'">
+        <lucide-icon name="mail"></lucide-icon>
+    </button>
+</nav>

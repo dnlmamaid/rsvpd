@@ -1,0 +1,16 @@
+.container {
+  height: 100vh;
+  overflow-y: auto;
+
+  scroll-snap-type: y mandatory;
+
+  section {
+    height: 100vh;
+    scroll-snap-align: start;
+
+    padding: clamp(2rem, 5vw, 4rem) clamp(2rem, 5vw, 4rem) 90px;
+    &#hero {
+      padding: 0;
+    }
+  }
+}

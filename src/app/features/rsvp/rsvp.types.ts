@@ -4,4 +4,5 @@ export interface RsvpPayload {
     attending: boolean;
     guests: number;
     message?: string;
+    honeypot?: string;
 }

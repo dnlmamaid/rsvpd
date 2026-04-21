@@ -1,23 +1,19 @@
-<form [formGroup]="form" (ngSubmit)="submit()">
+<div class="container">
+    <section id="hero">
+        <app-hero-section />
+    </section>
 
-    <input placeholder="Name" formControlName="name" />
-    <input placeholder="Email" formControlName="email" />
+    <section id="entourage">
+        <app-entourage-section />
+    </section>
 
-    <select formControlName="attending">
-        <option [ngValue]="true">Attending</option>
-        <option [ngValue]="false">Not Attending</option>
-    </select>
+    <section id="location">
+        <app-location-section />
+    </section>
 
-    <input type="number" placeholder="Guests" formControlName="guests" />
+    <section id="rsvp">
+        <app-rsvp-form />
+    </section>
+</div>
 
-    <textarea placeholder="Message" formControlName="message"></textarea>
-
-    <button type="submit" [disabled]="form.invalid || loading()">
-        {{ loading() ? 'Submitting...' : 'Submit RSVP' }}
-    </button>
-
-</form>
-
-@if (success()) {
-    <p>✅ RSVP submitted!</p>
-}
+<app-bottom-nav />

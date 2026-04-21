@@ -6,6 +6,7 @@ export function createRsvpForm(fb: FormBuilder) {
         email: ['', [Validators.required, Validators.email]],
         attending: [true, Validators.required],
         guests: [1, [Validators.required, Validators.min(0)]],
-        message: ['']
+        message: [''],
+        honeypot: ['']
     });
 }

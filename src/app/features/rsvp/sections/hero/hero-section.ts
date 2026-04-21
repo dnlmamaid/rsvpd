@@ -11,4 +11,9 @@ export class HeroSection {
   readonly backgroundStyle = {
     backgroundImage: `url(assets/images/hero-bg.png)`
   };
+
+  readonly title = 'Patricia at Daniel';
+  readonly date = 'Enero 20, 2027 • 1:30 ng Hapon';
+  readonly location = 'Our Lady of Mt. Carmel Parish\n' +
+    '          Sabang, Baliuag, Bulacan';
 }

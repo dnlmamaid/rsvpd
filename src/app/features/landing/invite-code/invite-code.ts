@@ -2,6 +2,7 @@ import { Component, inject, signal } from "@angular/core";
 import { Router } from "@angular/router";
 import { RsvpService } from "../../../core/services/rsvp.service";
 import { InviteStore } from "../../../core/store/invite.store";
+import {LoadingStore} from "../../../core/store/loading.store";
 
 @Component({
   selector: "app-invite-code",
@@ -12,16 +13,15 @@ export class InviteCode {
   private router = inject(Router);
   private service = inject(RsvpService);
   private store = inject(InviteStore);
-
+  private loadingStore = inject(LoadingStore);
   code = signal('');
-  loading = signal(false);
+  loading = this.loadingStore.loading;
   error = signal<string | null>(null);
 
   async submit() {
     const value = this.code().trim();
     if (!value) return;
-
-    this.loading.set(true);
+    this.loadingStore.show('Submitting your RSVP...');
     this.error.set(null);
 
     try {
@@ -43,7 +43,7 @@ export class InviteCode {
     } catch {
       this.error.set('Something went wrong');
     } finally {
-      this.loading.set(false);
+      this.loadingStore.hide();
     }
   }
 

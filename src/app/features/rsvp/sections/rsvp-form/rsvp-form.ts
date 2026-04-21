@@ -10,6 +10,7 @@ import {
 import { CommonModule } from '@angular/common';
 import { RsvpService } from '../../../../core/services/rsvp.service';
 import { Invite } from '../../rsvp.types';
+import {LoadingStore} from "../../../../core/store/loading.store";
 
 @Component({
   selector: 'app-rsvp-form',
@@ -20,6 +21,7 @@ import { Invite } from '../../rsvp.types';
 })
 export class RsvpForm {
   private service = inject(RsvpService);
+  private readonly store = inject(LoadingStore);
 
   invite = input<Invite | null>(null);
   submitted = output<void>();
@@ -30,7 +32,7 @@ export class RsvpForm {
   message = signal('');
   contactInfo = signal('');
 
-  loading = signal(false);
+  loading = this.store.loading;
   success = signal(false);
   error = signal<string | null>(null);
 
@@ -88,7 +90,7 @@ export class RsvpForm {
     const invite = this.invite();
     if (!invite) return;
 
-    this.loading.set(true);
+    this.store.show("Submitting your RSVP...");
     this.error.set(null);
 
     const payload = {
@@ -114,7 +116,7 @@ export class RsvpForm {
         this.error.set('Network error');
       },
       complete: () => {
-        this.loading.set(false);
+        this.store.hide();
       }
     });
   }

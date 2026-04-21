@@ -21,14 +21,14 @@ export class InviteCode {
   async submit() {
     const value = this.code().trim();
     if (!value) return;
-    this.loadingStore.show('Submitting your RSVP...');
+    this.loadingStore.show('Hinahanap ang iyong paanyaya...');
     this.error.set(null);
 
     try {
       const res = await this.service.getInvite(value);
 
       if (!res.success || !res.data) {
-        this.error.set('Invalid invite code');
+        this.error.set('Walang paanyayang nakita.');
         return;
       }
 

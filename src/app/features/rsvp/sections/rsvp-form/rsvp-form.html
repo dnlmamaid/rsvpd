@@ -4,8 +4,8 @@
 
     @if (isSubmitted()) {
       <div class="rsvp-card success">
-        <h2>Thank you 💖</h2>
-        <p>You have already RSVP’d.</p>
+        <h2>Lubos na pasasalamat 💖</h2>
+        <p>Ang iyong tugon ay aming natanggap.</p>
       </div>
     } @else {
 
@@ -14,24 +14,24 @@
         <h2 class="title">Hi {{ i.name }} 👋</h2>
 
         <p class="seats">
-          You are reserved <strong>{{ i.guests }}</strong> seat(s)
+          May nakalaan para sa iyo na <strong>{{ i.guests }}</strong> upuan
         </p>
 
         <!-- Attending -->
         <div class="field">
-          <label>Will you attend?</label>
+          <label>Ikaw ba ay makadadalo?</label>
 
           <div class="toggle">
             <button
               [class.active]="attending() === true"
               (click)="attending.set(true)">
-              Yes
+              Oo, makakadalo ako
             </button>
 
             <button
               [class.active]="attending() === false"
               (click)="attending.set(false)">
-              No
+              Hindi
             </button>
           </div>
         </div>
@@ -39,7 +39,7 @@
         <!-- Guests -->
         @if (showGuestInputs()) {
           <div class="field">
-            <label>Guest Name(s)</label>
+            <label>Mga Pangalan ng Bisita</label>
 
             @for (name of guestNames(); track $index; let i = $index) {
               <input
@@ -53,7 +53,7 @@
         }
         <!-- Message -->
         <div class="field">
-          <label>Message (optional)</label>
+          <label>Mensahe para sa ikakasal</label>
           <textarea
             [value]="message()"
             (input)="message.set($any($event.target).value)">
@@ -62,7 +62,7 @@
 
         <!-- Contact -->
         <div class="field">
-          <label>Contact Info</label>
+          <label>Email o numero ng telepono</label>
           <input
             type="text"
             placeholder="Email or mobile"
@@ -83,9 +83,9 @@
           (click)="submit()">
 
           @if (loading()) {
-            Submitting...
+            Isinusumite ang iyong tugon...
           } @else {
-            Submit RSVP
+            Isumite ang Tugon
           }
 
         </button>

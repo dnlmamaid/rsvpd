@@ -1,7 +1,7 @@
 <div class="landing">
     <div class="card">
-        <h1 class="title">You're Invited 💌</h1>
-        <p class="subtitle">Enter your invitation code</p>
+        <h1 class="title">Isang Paanyaya! 💌</h1>
+        <p class="subtitle">itala ang iyong invitation code</p>
         <input class="invite-input"
                type="text"
                [value]="code()"
@@ -14,9 +14,9 @@
                 [disabled]="!code().trim() || loading()"
                 (click)="submit()">
             @if (loading()) {
-                Checking...
+              Inihahanda ang iyong paanyaya...
             } @else {
-                Continue
+              Magpatuloy
             }
         </button>
     </div>

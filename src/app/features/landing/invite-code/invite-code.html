@@ -1,0 +1,16 @@
+<div class="landing">
+    <div class="card">
+        <h1 class="title">You're Invited 💌</h1>
+        <p class="subtitle">
+            Enter your invitation code
+        </p>
+        <input class="invite-input"
+               type="text"
+               [value]="code()"
+               (input)="onInput($event)"
+        />
+        <button class="btn btn-primary" [disabled]="!code().trim()" (click)="submit()">
+            Continue
+        </button>
+    </div>
+</div>

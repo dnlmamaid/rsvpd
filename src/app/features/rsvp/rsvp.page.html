@@ -1,16 +1,7 @@
 <div class="container">
-    <section id="hero">
-        <app-hero-section/>
-    </section>
-
-    <section id="entourage">
-        <app-entourage-section/>
-    </section>
-
-    <section id="location">
-        <app-location-section/>
-    </section>
-
+    <section id="hero"><app-hero-section /></section>
+    <section id="entourage"><app-entourage-section /></section>
+    <section id="location"><app-location-section /></section>
     <section id="rsvp">
         @if (loading()) {
             <p class="center">Loading your invite...</p>
@@ -19,11 +10,11 @@
             <p class="error">{{ error() }}</p>
         }
         @if (invite(); as inviteData) {
-            <app-rsvp-form [invite]="inviteData"
-                           (submitted)="onSubmitted()"/>
+            <app-rsvp-form
+                    [invite]="inviteData"
+                    (submitted)="onSubmitted()"
+            />
         }
     </section>
-
 </div>
-
-<app-bottom-nav/>
+<app-bottom-nav />

@@ -11,7 +11,7 @@
 
       <div class="rsvp-card">
 
-        <h2 class="title">Hi {{ i.name }} 👋</h2>
+        <h2 class="title">Maligayang pagdating {{ i.name }} 👋</h2>
 
         <p class="seats">
           May nakalaan para sa iyo na <strong>{{ i.guests }}</strong> upuan
@@ -23,12 +23,18 @@
 
           <div class="toggle">
             <button
+              id="accept-button"
+              class="btn"
+              type="button"
               [class.active]="attending() === true"
               (click)="attending.set(true)">
               Oo, makakadalo ako
             </button>
 
             <button
+              id="decline-button"
+              class="btn"
+              type="button"
               [class.active]="attending() === false"
               (click)="attending.set(false)">
               Hindi
@@ -78,6 +84,8 @@
 
         <!-- Submit -->
         <button
+          id="submit-rsvp-button"
+          type="submit"
           class="btn btn-primary submit-btn"
           [disabled]="!canSubmit()"
           (click)="submit()">

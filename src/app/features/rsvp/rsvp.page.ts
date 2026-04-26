@@ -1,14 +1,13 @@
 import { Component, inject, signal, effect } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-
 import { RsvpService } from "../../core/services/rsvp.service";
 import { InviteStore } from "../../core/store/invite.store";
-
 import { HeroSection } from "./sections/hero/hero-section";
 import { EntourageSection } from "./sections/entourage/entourage-section";
 import { LocationSection } from "./sections/location/location-section";
 import { RsvpForm } from "./sections/rsvp-form/rsvp-form";
 import { BottomNav } from "./components/bottom-nav/bottom-nav";
+import {FaqSection} from "./sections/faq/faq-section";
 
 @Component({
   selector: "app-rsvp",
@@ -17,6 +16,7 @@ import { BottomNav } from "./components/bottom-nav/bottom-nav";
     HeroSection,
     EntourageSection,
     LocationSection,
+    FaqSection,
     RsvpForm,
     BottomNav
   ],

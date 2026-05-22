@@ -3,9 +3,13 @@
     <h2 class="title">{{ title() }}</h2>
     <p class="subtitle">{{ subtitle() }}</p>
     <p class="message">{{ message() }}</p>
-    <div class="qr-card">
-      <img [src]="qrImage()" alt="QR Code" />
-      <span>Scan to contribute</span>
+    <div class="qr-list">
+      @for (qr of qrCodes(); track qr.title) {
+        <div class="qr-card">
+          <h3>{{ qr.title }}</h3>
+          <img [src]="qr.image" [alt]="qr.title + ' QR Code'" />
+        </div>
+      }
     </div>
   </div>
   <div class="art"></div>

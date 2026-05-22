@@ -8,6 +8,8 @@ import { LocationSection } from "./sections/location/location-section";
 import { RsvpForm } from "./sections/rsvp-form/rsvp-form";
 import { BottomNav } from "./components/bottom-nav/bottom-nav";
 import {FaqSection} from "./sections/faq/faq-section";
+import {ProgramSection} from "./sections/program/program-section";
+import {QrSection} from "./sections/qr/qr-section";
 
 @Component({
   selector: "app-rsvp",
@@ -17,6 +19,8 @@ import {FaqSection} from "./sections/faq/faq-section";
     EntourageSection,
     LocationSection,
     FaqSection,
+    ProgramSection,
+    QrSection,
     RsvpForm,
     BottomNav
   ],

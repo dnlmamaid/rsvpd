@@ -1,0 +1,12 @@
+<section class="qr" [ngStyle]="backgroundStyle">
+  <div class="content">
+    <h2 class="title">{{ title() }}</h2>
+    <p class="subtitle">{{ subtitle() }}</p>
+    <p class="message">{{ message() }}</p>
+    <div class="qr-card">
+      <img [src]="qrImage()" alt="QR Code" />
+      <span>Scan to contribute</span>
+    </div>
+  </div>
+  <div class="art"></div>
+</section>

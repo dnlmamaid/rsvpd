@@ -1,9 +1,4 @@
 .bottom-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -15,11 +10,14 @@
 
   border-top: 1px solid rgba(0, 0, 0, 0.05);
 
+  z-index: 10;
+
   button {
     background: none;
     border: none;
     padding: 0.4rem;
     cursor: pointer;
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -38,7 +36,8 @@
       opacity: 1;
       transform: translateY(-2px);
     }
-    &.active::after{
+
+    &.active::after {
       content: '';
       width: 4px;
       height: 4px;
@@ -50,6 +49,7 @@
     &:hover {
       transform: translateY(-2px);
       opacity: 0.85;
+
       lucide-icon {
         transform: scale(1.1);
       }

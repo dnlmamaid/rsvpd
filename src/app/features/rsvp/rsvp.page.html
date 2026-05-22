@@ -1,23 +1,29 @@
-<div class="container">
+<div class="page-shell">
+  <div class="container">
     <section id="hero"><app-hero-section /></section>
     <section id="entourage"><app-entourage-section /></section>
     <section id="location"><app-location-section /></section>
-    <section id="faq">
-      <app-faq-section />
-    </section>
+    <section id="program"><app-program-section /></section>
+    <section id="faq"><app-faq-section /></section>
     <section id="rsvp">
-        @if (loading()) {
-            <p class="center">Hinahanap ang iyong imbitasyon...</p>
-        }
-        @if (error()) {
-            <p class="error">{{ error() }}</p>
-        }
-        @if (invite(); as inviteData) {
-            <app-rsvp-form
-                    [invite]="inviteData"
-                    (submitted)="onSubmitted()"
-            />
-        }
+      @if (loading()) {
+        <p class="center">Hinahanap ang iyong imbitasyon...</p>
+      }
+      @if (error()) {
+        <p class="error">{{ error() }}</p>
+      }
+      @if (invite(); as inviteData) {
+        <app-rsvp-form
+          [invite]="inviteData"
+          (submitted)="onSubmitted()"
+        />
+      }
     </section>
+
+    <section id="qr">
+      <app-qr-section />
+    </section>
+  </div>
+
+  <app-bottom-nav />
 </div>
-<app-bottom-nav />

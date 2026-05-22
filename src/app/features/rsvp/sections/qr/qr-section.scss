@@ -1,0 +1,112 @@
+.qr {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+
+  display: grid;
+  grid-template-columns: 52% 48%;
+  align-items: center;
+
+  background-size: auto 108%;
+  background-repeat: no-repeat;
+  background-position: right center;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    padding-top: 120px;
+
+    background-position: center top;
+    background-size: cover;
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+
+  grid-column: 1;
+
+  width: min(90%, 650px);
+  justify-self: center;
+  margin-left: clamp(1rem, 4vw, 4rem);
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  animation: fadeIn 1.2s ease forwards;
+
+  @media (max-width: 900px) {
+    grid-column: 1;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
+  .subtitle,
+  .message {
+    font-family: "ABeeZee", sans-serif;
+    color: #8b5e2b;
+  }
+
+  .subtitle {
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+  }
+
+  .message {
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+
+  .qr-card {
+    margin-top: 1rem;
+
+    width: 220px;
+    height: 220px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+    img {
+      width: 160px;
+      height: 160px;
+      object-fit: contain;
+    }
+
+    span {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: #8b5e2b;
+    }
+  }
+
+  .art {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media (max-width: 900px) {
+      display: none;
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }

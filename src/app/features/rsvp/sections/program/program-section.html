@@ -1,0 +1,15 @@
+<section class="program" [ngStyle]="backgroundStyle">
+  <div class="content">
+    <h2 class="title">{{ title() }}</h2>
+    <div class="program-list">
+      @for (item of items(); track item.title) {
+        <div class="program-item">
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.description }}</p>
+        </div>
+      }
+    </div>
+    <div class="waves">
+    </div>
+  </div>
+</section>

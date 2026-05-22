@@ -14,12 +14,12 @@
         <h2 class="title">Maligayang pagdating {{ i.name }} 👋</h2>
 
         <p class="seats">
-          May nakalaan para sa iyo na <strong>{{ i.guests }}</strong> upuan
+          May nakalaang <strong>{{ i.guests }}</strong> upuan para sa iyo
         </p>
 
         <!-- Attending -->
         <div class="field">
-          <label>Ikaw ba ay makadadalo?</label>
+          <label>Ikaw ba ay makakadalo?</label>
 
           <div class="toggle">
             <button
@@ -37,7 +37,7 @@
               type="button"
               [class.active]="attending() === false"
               (click)="attending.set(false)">
-              Hindi
+              Hindi ako makakadalo
             </button>
           </div>
         </div>

@@ -15,7 +15,7 @@ interface ProgramItem {
 })
 export class ProgramSection {
   readonly backgroundStyle = {
-    backgroundImage: `url(/assets/images/program-bg.png)`
+    backgroundImage: `url(assets/images/program-bg.png)`
   };
 
   readonly title = signal("Programa");

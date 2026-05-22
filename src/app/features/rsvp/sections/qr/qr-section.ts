@@ -10,7 +10,7 @@ import { Component, signal } from "@angular/core";
 })
 export class QrSection {
   readonly backgroundStyle = {
-    backgroundImage: `url(/assets/images/bg-4.png)`
+    backgroundImage: `url(assets/images/bg-4.png)`
   };
 
   readonly title = signal("Handog sa mag-irog");

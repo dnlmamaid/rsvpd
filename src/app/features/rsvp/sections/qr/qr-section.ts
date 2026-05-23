@@ -25,7 +25,7 @@ export class QrSection {
   );
 
   readonly message = signal(
-    "Kung nais ninyong magbahagi, maaari ninyong gamitin ang QR code sa ibaba para sa aming bagong simula."
+    "Kung nais ninyong magbahagi, maaari ninyong gamitin itong mga QR code sa ibaba para sa aming bagong simula."
   );
 
   readonly qrCodes = signal<QrCode[]>([

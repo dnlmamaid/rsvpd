@@ -7,6 +7,10 @@
   flex-direction: column;
   justify-content: center;
   gap: clamp(2rem, 4vw, 3rem);
+
+  /* background pattern for the attire section */
+  background: url('/assets/images/bg-kasuotan.png') center/cover no-repeat;
+  position: relative;
 }
 
 .header {
@@ -227,12 +231,63 @@
 }
 
 @media (max-width: 900px) {
+  /* Stack layout vertically and improve spacing on small screens */
   .layout {
     grid-template-columns: 1fr;
     text-align: center;
+    gap: 1.25rem;
   }
 
+  /* Ensure the illustration appears above the guides on narrow viewports */
   .art {
     order: -1;
+    margin-bottom: 1rem;
+  }
+
+  /* Make guide box full width and reduce padding */
+  .role-guide {
+    width: 100%;
+    margin: 0.75rem 0;
+    padding: 0.75rem;
+  }
+
+  /* Collapse palette into stacked rows that center and wrap when needed */
+  .role-palette {
+    margin-top: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .role-palette-row {
+    justify-content: center;
+    gap: 1rem;
+    padding: 0;
+    width: 100%;
+    flex-wrap: wrap;
+    overflow-x: hidden;
+  }
+
+  /* Reduce swatch block widths so they fit comfortably */
+  .swatch-set {
+    min-width: 110px;
+  }
+
+  /* Slightly smaller circular swatches on mobile */
+  .swatch-mini {
+    width: 36px;
+    height: 36px;
+  }
+
+  /* Center guide text for better layout */
+  .guide h3,
+  .guide p {
+    text-align: center;
+  }
+
+  /* Constrain image width for small screens */
+  .art img {
+    width: min(80%, 260px);
   }
 }

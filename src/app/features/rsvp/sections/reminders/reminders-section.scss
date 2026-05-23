@@ -1,0 +1,86 @@
+.reminders {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: min(10vw, 80px) min(6vw, 40px);
+  color: #3f2a1d;
+}
+
+.reminders-grid {
+  display: grid;
+  grid-template-columns: 40% 1fr;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2rem);
+}
+
+.couple-photo {
+  width: 100%;
+  height: clamp(220px, 28vw, 380px);
+  border-radius: 12px;
+  background: linear-gradient(135deg, #efe6df, #e6d4c3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(63, 42, 29, 0.55);
+  font-weight: 600;
+  font-size: clamp(0.9rem, 1.6vw, 1.1rem);
+}
+
+.couple-photo::after {
+  content: 'Photo';
+  opacity: 0.35;
+}
+
+.title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--primary-button);
+  margin-bottom: 32px;
+  text-align: right;
+}
+
+.reminders-card {
+  max-width: 520px;
+  width: 100%;
+  justify-self: end; /* anchor the card to the right column */
+  text-align: right;
+}
+
+.lead {
+  font-weight: 700;
+  font-size: clamp(1.1rem, 2.8vw, 1.6rem);
+  line-height: 1.2;
+  margin: 0 0 0.75rem;
+}
+
+.assist {
+  margin: 0 0 0.75rem;
+  color: #6b4a34;
+}
+
+.closing {
+  margin: 0;
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .reminders-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .couple-photo {
+    order: -1;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .reminders-card {
+    justify-self: center;
+    text-align: center;
+    max-width: 720px;
+  }
+
+  .title {
+    text-align: center;
+  }
+}

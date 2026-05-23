@@ -10,6 +10,7 @@ import {FaqSection} from "./sections/faq/faq-section";
 import {ProgramSection} from "./sections/program/program-section";
 import {QrSection} from "./sections/qr/qr-section";
 import {AttireSection} from "./sections/attire/attire-section";
+import {RemindersSection} from "./sections/reminders/reminders-section";
 
 @Component({
   selector: "app-rsvp",
@@ -22,6 +23,7 @@ import {AttireSection} from "./sections/attire/attire-section";
     ProgramSection,
     QrSection,
     RsvpForm,
+    RemindersSection,
     BottomNav
   ],
   templateUrl: "./rsvp.page.html",

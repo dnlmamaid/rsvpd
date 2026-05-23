@@ -1,5 +1,6 @@
 import { Component, signal } from "@angular/core";
 import { LucideAngularModule } from "lucide-angular";
+import {CommonModule} from "@angular/common";
 
 interface Venue {
   label: string;
@@ -12,12 +13,16 @@ interface Venue {
 
 @Component({
   selector: "app-location-section",
-  imports: [LucideAngularModule],
+  imports: [LucideAngularModule, CommonModule],
   templateUrl: "./location-section.html",
   styleUrl: "./location-section.scss",
 })
 export class LocationSection {
   readonly title = signal("Lokasyon");
+
+  readonly backgroundStyle = {
+    backgroundImage: `url(assets/images/bg-location.png)`
+  };
 
   readonly subtitle = signal(
     "Narito ang mga lugar para sa seremonya at salu-salo."

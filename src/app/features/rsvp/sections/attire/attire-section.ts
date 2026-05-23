@@ -26,6 +26,10 @@ export class AttireSection {
 
   readonly title = signal('Kasuotan');
 
+  readonly backgroundStyle = {
+    backgroundImage: `url(assets/images/bg-kasuotan.png)`
+  };
+
   // Palette sets (each is a small family of hex variants)
   private readonly champagne: AttireColorSet = {
     name: 'Champagne',

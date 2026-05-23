@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class RemindersSection {
   readonly title = 'Paalaala';
+
+  // Provide the background image URL as a style binding value (must include url(...))
+  readonly photoUrl = "url('/assets/images/dan-pat.jpg')";
 }

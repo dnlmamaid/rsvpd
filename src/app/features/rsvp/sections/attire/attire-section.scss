@@ -9,7 +9,12 @@
   gap: clamp(2rem, 4vw, 3rem);
 
   /* background pattern for the attire section */
-  background: url('/assets/images/bg-kasuotan.png') center/cover no-repeat;
+  /* use contain so the entire artwork remains visible; falls back to cover on large viewports if needed */
+  background-image: url('/assets/images/bg-kasuotan.png');
+  background-position: center bottom;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: transparent;
   position: relative;
 }
 

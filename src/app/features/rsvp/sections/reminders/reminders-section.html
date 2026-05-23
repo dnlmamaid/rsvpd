@@ -1,10 +1,6 @@
 <section class="reminders">
   <div class="reminders-grid">
-    <div class="couple-photo"
-       [style.backgroundImage]="photoUrl"
-       [style.backgroundSize]="'cover'"
-       [style.backgroundPosition]="'center'"
-       aria-hidden="true"></div>
+    <div class="couple-photo" [ngStyle]="backgroundStyle" aria-hidden="true"></div>
 
     <div class="reminders-card">
       <h2 class="title">{{ title }}</h2>

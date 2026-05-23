@@ -12,7 +12,7 @@ interface ApiResponse<T = any> {
 export class RsvpService {
     private http = inject(HttpClient);
 
-    private readonly apiUrl = 'https://script.google.com/macros/s/AKfycbzVFSQI01sjGnEee5d-jun8u8doDVJe4zgOCjneJAnkThgRdcrWhLoLEwmn0E_mRGh9Jg/exec';
+    private readonly apiUrl = 'https://script.google.com/macros/s/AKfycbyteYa-doPf8z4oD89IVW46UpiIwZbBPzsZ5ul14xxWBXwRV3MpBPEt3dPcYpa9Ul80Nw/exec';
 
     /**
      * GET invite by code

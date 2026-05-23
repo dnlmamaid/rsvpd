@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { EntourageSection } from "./entourage-section";
+import { AttireSection } from "./attire-section";
 
-describe("EntourageSection", () => {
-  let component: EntourageSection;
-  let fixture: ComponentFixture<EntourageSection>;
+describe("AttireSection", () => {
+  let component: AttireSection;
+  let fixture: ComponentFixture<AttireSection>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [EntourageSection],
+      imports: [AttireSection],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(EntourageSection);
+    fixture = TestBed.createComponent(AttireSection);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

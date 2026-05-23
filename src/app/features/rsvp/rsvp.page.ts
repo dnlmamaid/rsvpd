@@ -3,20 +3,20 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { RsvpService } from "../../core/services/rsvp.service";
 import { InviteStore } from "../../core/store/invite.store";
 import { HeroSection } from "./sections/hero/hero-section";
-import { EntourageSection } from "./sections/entourage/entourage-section";
 import { LocationSection } from "./sections/location/location-section";
 import { RsvpForm } from "./sections/rsvp-form/rsvp-form";
 import { BottomNav } from "./components/bottom-nav/bottom-nav";
 import {FaqSection} from "./sections/faq/faq-section";
 import {ProgramSection} from "./sections/program/program-section";
 import {QrSection} from "./sections/qr/qr-section";
+import {AttireSection} from "./sections/attire/attire-section";
 
 @Component({
   selector: "app-rsvp",
   standalone: true,
   imports: [
     HeroSection,
-    EntourageSection,
+    AttireSection,
     LocationSection,
     FaqSection,
     ProgramSection,

@@ -30,15 +30,15 @@ export class LocationSection {
       description: "Dito gaganapin ang pag-iisang dibdib.",
       image: "assets/images/church-carmel.png",
       address: "Sabang, XW89+M2R, Baliwag, Bulacan",
-      maps: "https://maps.app.goo.gl/7mV1wLzxuCSYDnFP9"
+      maps: "https://maps.app.goo.gl/bAYzQcj3xDUmVLBz6"
     },
     {
-      label: "Salu-salo",
+      label: "Salusalo",
       name: "Maravilloza Events Place",
-      description: "Dito susundan ang salu-salo at pagdiriwang.",
+      description: "Dito susundan ang salusalo at pagdiriwang.",
       image: "assets/images/reception-maravilloza.png",
       address: "M. H. Del Pilar, Dampol I, Pulilan, 3005 Bulacan",
-      maps: "https://maps.app.goo.gl/bAYzQcj3xDUmVLBz6"
+      maps: "https://maps.app.goo.gl/7mV1wLzxuCSYDnFP9"
     },
   ]);
 }

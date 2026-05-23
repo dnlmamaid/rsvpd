@@ -6,6 +6,7 @@ export interface Invite {
     guests: number;
     guestNames: string;
     message: string;
+    guestType: 0 | 1 | 2;
     used: boolean;
 }
 

@@ -1,4 +1,45 @@
-<div class="location">
-    <h2>Lokasyon</h2>
-    <p>Map</p>
-</div>
+<section class="location">
+  <header class="location-header">
+    <h2>{{ title() }}</h2>
+  </header>
+
+  <div class="venue-grid">
+    @for (venue of venues(); track venue.name; let index = $index) {
+      <article
+        class="venue"
+        [class.venue-church]="index === 0"
+        [class.venue-reception]="index === 1"
+      >
+        <a
+          class="venue-image-link"
+          [href]="venue.maps"
+          target="_blank"
+          rel="noopener noreferrer"
+          [attr.aria-label]="'Open ' + venue.name + ' in Google Maps'"
+        >
+          <img
+            [src]="venue.image"
+            [alt]="venue.name"
+          />
+        </a>
+
+        <div class="venue-caption">
+          <div class="venue-caption-main">
+            <span>{{ venue.label }}</span>
+            <h3>{{ venue.name }}</h3>
+            <p>{{ venue.address }}</p>
+          </div>
+          <a
+            class="map-link"
+            [href]="venue.maps"
+            target="_blank"
+            rel="noopener noreferrer"
+            [attr.aria-label]="'Open ' + venue.name + ' in Google Maps'"
+          >
+            <lucide-icon name="map-pin" size="20" />
+          </a>
+        </div>
+      </article>
+    }
+  </div>
+</section>

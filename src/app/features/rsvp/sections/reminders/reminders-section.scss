@@ -16,20 +16,14 @@
   width: 100%;
   height: clamp(220px, 28vw, 380px);
   border-radius: 12px;
-  background: linear-gradient(135deg, #efe6df, #e6d4c3);
+  background-image: url('/assets/images/dan-pat.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(63, 42, 29, 0.55);
-  font-weight: 600;
-  font-size: clamp(0.9rem, 1.6vw, 1.1rem);
-}
-
-.couple-photo::after {
-  content: 'Photo';
-  opacity: 0.35;
+  display: block; /* image occupies the block area */
+  overflow: hidden;
 }
 
 .title {

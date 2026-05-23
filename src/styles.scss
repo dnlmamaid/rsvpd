@@ -35,8 +35,13 @@ h1, h2, h3 {
   line-height: 1.2;
 }
 
-p, label {
-  font-family: var(--font-subheading), serif;
+p,
+label,
+input,
+textarea,
+button,
+small {
+  font-family: 'ABeeZee', sans-serif;
 }
 
 

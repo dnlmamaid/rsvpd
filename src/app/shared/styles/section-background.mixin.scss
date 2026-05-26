@@ -1,6 +1,6 @@
 @mixin section-background(
   $image,
-  $overlay: rgb(255 252 248 / 0.84),
+  $overlay: null,
   $position: center,
   $size: cover
 ) {
@@ -14,7 +14,13 @@
     inset: 0;
     z-index: -1;
 
-    background-size: $size;
-    background: url('#{$image}') no-repeat $position;
+    @if $overlay {
+      background:
+              linear-gradient($overlay, $overlay),
+              url('#{$image}') no-repeat $position / $size;
+    } @else {
+      background:
+              url('#{$image}') no-repeat $position / $size;
+    }
   }
 }

@@ -1,90 +1,109 @@
+@use '../../../../shared/styles/section-background.mixin' as *;
+
 :host {
   display: block;
+  height: 100%;
   min-height: 100%;
 }
 
 .reminders {
-  min-height: 100%;
+  @include section-background('/assets/images/backgrounds/bg-reminders.webp');
+
   width: 100%;
+  height: 100%;
+  min-height: 100%;
   box-sizing: border-box;
+
   display: flex;
   align-items: center;
-  color: #3f2a1d;
-}
 
-.reminders-container {
-  width: min(100%, 1000px);
-  margin: 0 auto;
-  padding: min(10vw, 80px) min(6vw, 40px);
-  box-sizing: border-box;
-}
+  color: var(--secondary-text);
 
-.reminders-grid {
-  display: grid;
-  grid-template-columns: 40% 1fr;
-  align-items: center;
-  gap: clamp(1rem, 3vw, 2rem);
-}
+  &-container {
+    width: min(100%, 1000px);
+    margin: 0 auto;
+    padding: min(10vw, 80px) min(6vw, 40px);
+    box-sizing: border-box;
+  }
 
-.couple-photo {
-  width: 100%;
-  height: clamp(220px, 28vw, 380px);
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  position: relative;
-  display: block; /* image occupies the block area */
-  overflow: hidden;
-}
+  &-grid {
+    display: grid;
+    grid-template-columns: 40% 1fr;
+    align-items: center;
+    gap: clamp(1rem, 3vw, 2rem);
+  }
 
-.title {
-  font-size: clamp(2rem, 5vw, 3rem);
-  color: var(--primary-button);
-  margin-bottom: 32px;
-  text-align: right;
-}
+  &-card {
+    max-width: 520px;
+    width: 100%;
+    justify-self: end;
+    text-align: right;
 
-.reminders-card {
-  max-width: 520px;
-  width: 100%;
-  justify-self: end; /* anchor the card to the right column */
-  text-align: right;
-}
-
-.lead {
-  font-weight: 700;
-  font-size: clamp(1.1rem, 2.8vw, 1.6rem);
-  line-height: 1.2;
-  margin: 0 0 0.75rem;
-}
-
-.assist {
-  margin: 0 0 0.75rem;
-  color: #6b4a34;
-}
-
-.closing {
-  margin: 0;
-  font-weight: 600;
-}
-
-@media (max-width: 900px) {
-  .reminders-grid {
-    grid-template-columns: 1fr;
+    padding: clamp(1.25rem, 3vw, 2rem);
   }
 
   .couple-photo {
-    order: -1;
     width: 100%;
-    margin-bottom: 1rem;
-  }
+    height: clamp(220px, 28vw, 380px);
 
-  .reminders-card {
-    justify-self: center;
-    text-align: center;
-    max-width: 720px;
+    display: block;
+    overflow: hidden;
+    position: relative;
+
+    border-radius: 12px;
+    box-shadow: 0 12px 32px rgb(63 42 29 / 12%);
   }
 
   .title {
-    text-align: center;
+    margin: 0 0 32px;
+
+    color: var(--primary-button);
+    font-size: clamp(2rem, 5vw, 3rem);
+    text-align: right;
+  }
+
+  .lead {
+    margin: 0 0 0.75rem;
+
+    color: var(--primary-text);
+    font-weight: 700;
+    font-size: clamp(1.1rem, 2.8vw, 1.6rem);
+    line-height: 1.2;
+  }
+
+  .assist {
+    margin: 0 0 0.75rem;
+    color: var(--form-text);
+  }
+
+  .closing {
+    margin: 0;
+
+    color: var(--secondary-text);
+    font-weight: 600;
+  }
+
+  @media (max-width: 900px) {
+    align-items: flex-start;
+
+    &-grid {
+      grid-template-columns: 1fr;
+    }
+
+    &-card {
+      max-width: 720px;
+      justify-self: center;
+      text-align: center;
+    }
+
+    .couple-photo {
+      order: -1;
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+
+    .title {
+      text-align: center;
+    }
   }
 }

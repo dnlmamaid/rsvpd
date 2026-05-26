@@ -17,10 +17,10 @@
     @if $overlay {
       background:
               linear-gradient($overlay, $overlay),
-              url('#{$image}') no-repeat $position / $size;
+              url($image) no-repeat $position / $size;
     } @else {
       background:
-              url('#{$image}') no-repeat $position / $size;
+              url($image) no-repeat $position / $size;
     }
   }
 }

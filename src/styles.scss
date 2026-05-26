@@ -11,13 +11,14 @@
 
   --primary-text: #7a4900;
   --primary-bg: #fffcf8;
+  --secondary-text: #3f2a1d;
   --secondary-bg: #f7e7ce;
   --tertiary-bg:#fff6e6;
 
   --primary-button: #3E2F23;
   --primary-button-hover: #2F241B;
 
-  --secondary-text: #6b5a4a;
+  --form-text: #6b5a4a;
 
   --input-focus: var(--primary-button);
   --border: var(--primary-button);
@@ -25,7 +26,6 @@
   --error-color: #B23A2A;
 }
 
-/* You can add global styles to this file, and also import other style files */
 h1, h2, h3 {
   color: var(--primary-text);
   font-family: var(--font-heading), serif;

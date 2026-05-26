@@ -35,7 +35,7 @@
 .seats {
   text-align: center;
   margin-bottom: 28px;
-  color: var(--secondary-text);
+  color: var(--form-text);
 }
 
 .field {
@@ -45,7 +45,7 @@
     display: block;
     font-size: 0.85rem;
     margin-bottom: 8px;
-    color: var(--secondary-text);
+    color: var(--form-text);
   }
 }
 
@@ -100,7 +100,7 @@
   }
 
   p {
-    color: var(--secondary-text);
+    color: var(--form-text);
   }
 }
 

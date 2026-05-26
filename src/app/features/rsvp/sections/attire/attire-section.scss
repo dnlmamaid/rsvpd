@@ -1,6 +1,5 @@
 .attire {
   min-height: 100%;
-  padding: clamp(2rem, 5vw, 4rem);
   color: #3f2a1d;
 
   display: flex;
@@ -58,7 +57,7 @@
   }
 
   strong {
-    color: #7a4900;
+    color: var(--primary-text);
     font-size: clamp(1rem, 1.5vw, 1.2rem);
   }
 

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" role="img">
+  <!-- Base user-round icon -->
+  <circle cx="12" cy="8" r="5"/>
+  <path d="M20 21a8 8 0 0 0-16 0"/>
+
+  <!-- Salakot brim (above head) -->
+  <path d="M2.5 10.5 C5.0 7.0 9.0 5.5 12 5.5 c3.0 0 7.0 1.5 9.5 5.0" fill="none"/>
+
+  <!-- Salakot pointed cone (narrower, centered, slightly tilted) -->
+  <g transform="rotate(-18 12 8)">
+    <path d="M12 2.2 L15.2 11.2 C14.0 11.8 13.0 12.0 12 12.0 C11.0 12.0 10.0 11.8 8.8 11.2 L12 2.2 Z" fill="none"/>
+    <!-- small base curve to anchor cone to brim -->
+    <path d="M9.2 11.2 C10.6 12.0 13.4 12.0 14.8 11.2" fill="none" stroke-width="1.6"/>
+  </g>
+</svg>

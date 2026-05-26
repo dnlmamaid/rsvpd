@@ -1,0 +1,132 @@
+<svg
+  width="32"
+  height="32"
+  viewBox="0 0 512 512"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <g
+    stroke="currentColor"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    fill="none"
+  >
+    <!-- outer cone -->
+    <path
+      d="M64 300
+         C122 254 186 192 234 120
+         C244 104 268 104 278 120
+         C326 192 390 254 448 300"
+      stroke-width="18"
+    />
+
+    <!-- bottom brim -->
+    <path
+      d="M64 300
+         C92 340 170 356 256 356
+         C342 356 420 340 448 300"
+      stroke-width="18"
+    />
+
+    <!-- top cap -->
+    <path
+      d="M226 132
+         C238 112 248 98 256 92
+         C264 98 274 112 286 132"
+      stroke-width="14"
+    />
+
+    <!-- center rib -->
+    <path
+      d="M256 126V346"
+      stroke-width="5"
+      opacity=".9"
+    />
+
+    <!-- inner ribs -->
+    <path
+      d="M238 142
+         C214 196 194 258 182 340"
+      stroke-width="5"
+      opacity=".75"
+    />
+
+    <path
+      d="M274 142
+         C298 196 318 258 330 340"
+      stroke-width="5"
+      opacity=".75"
+    />
+
+    <!-- outer ribs -->
+    <path
+      d="M214 160
+         C176 214 142 264 108 312"
+      stroke-width="4"
+      opacity=".55"
+    />
+
+    <path
+      d="M298 160
+         C336 214 370 264 404 312"
+      stroke-width="4"
+      opacity=".55"
+    />
+
+    <!-- brim detail -->
+    <path
+      d="M110 318
+         C154 338 206 348 256 348
+         C306 348 358 338 402 318"
+      stroke-width="6"
+      opacity=".7"
+    />
+
+    <path
+      d="M132 330
+         C176 346 214 352 256 352
+         C298 352 336 346 380 330"
+      stroke-width="4"
+      opacity=".45"
+    />
+
+    <!-- chin cord -->
+    <path
+      d="M164 354
+         C182 410 220 446 256 446
+         C292 446 330 410 348 354"
+      stroke-width="11"
+    />
+
+    <!-- attachment dots -->
+    <circle
+      cx="164"
+      cy="354"
+      r="7"
+      fill="currentColor"
+      stroke="none"
+    />
+
+    <circle
+      cx="348"
+      cy="354"
+      r="7"
+      fill="currentColor"
+      stroke="none"
+    />
+
+    <!-- knot -->
+    <circle
+      cx="256"
+      cy="446"
+      r="6"
+      fill="currentColor"
+      stroke="none"
+    />
+
+    <!-- tassels -->
+    <path d="M246 446L234 468" stroke-width="9" />
+    <path d="M256 446V472" stroke-width="9" />
+    <path d="M266 446L278 468" stroke-width="9" />
+  </g>
+</svg>

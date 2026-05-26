@@ -24,13 +24,17 @@ export class InviteCode {
     submitButton: 'Magpatuloy',
   } as const;
 
+  readonly confettiPieces = Array.from({ length: 64 }, (_, index) => index);
+
   code = signal('');
   loading = this.loadingStore.loading;
   error = signal<string | null>(null);
+  opening = signal<boolean>(false);
 
   async submit() {
     const value = this.code().trim();
-    if (!value) return;
+    if (!value || this.loading() || this.opening()) return;
+
     this.loadingStore.show('Hinahanap ang iyong paanyaya...');
     this.error.set(null);
 
@@ -42,14 +46,14 @@ export class InviteCode {
         return;
       }
 
-      // ✅ save to store
       this.store.setInvite(res.data);
+      this.opening.set(true);
 
-      // ✅ navigate WITH query param
-      this.router.navigate(['/rsvp'], {
-        queryParams: { code: value }
-      });
-
+      setTimeout(() => {
+        this.router.navigate(['/rsvp'], {
+          queryParams: { code: value },
+        });
+      }, 1500);
     } catch {
       this.error.set('Something went wrong');
     } finally {

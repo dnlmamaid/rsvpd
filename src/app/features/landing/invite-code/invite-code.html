@@ -1,23 +1,41 @@
-<div class="landing">
-    <div class="card">
-        <h1 class="title">{{ copy.title }}</h1>
-        <p class="subtitle">{{ copy.subtitle }}</p>
-        <input class="invite-input"
-               type="text"
-               [value]="code()"
-               (input)="onInput($event)"/>
+<div class="landing" [class.is-opening]="opening()" [class.is-loading]="loading()">
+  <div class="envelope">
+    <div class="envelope__body"></div>
+    <div class="envelope__flap"></div>
 
-        @if (error()) {
-            <p class="error">{{ error() }}</p>
-        }
-        <button class="btn btn-primary"
-                [disabled]="!code().trim() || loading()"
-                (click)="submit()">
-            @if (loading()) {
-              {{ copy.loadingButton }}
-            } @else {
-              {{ copy.submitButton }}
-            }
-        </button>
+    <div class="code-area">
+      <input
+        class="invite-input"
+        type="text"
+        aria-label="Invitation code"
+        [value]="code()"
+        (input)="onInput($event)"
+      />
+
+      <p class="code-label">Ilagay ang invite code</p>
+
+      @if (error()) {
+        <p class="error">{{ error() }}</p>
+      }
     </div>
+
+    <button
+      class="seal-button"
+      type="button"
+      [disabled]="!code().trim() || loading()"
+      (click)="submit()"
+      [attr.aria-label]="copy.submitButton"
+    >
+      <span class="seal-button__monogram">D<span>&</span>P</span>
+    </button>
+
+    <div class="letter">
+      <div class="card"></div>
+    </div>
+  </div>
+  <div class="confetti" aria-hidden="true">
+    @for (piece of confettiPieces; track piece) {
+      <span class="confetti-piece"></span>
+    }
+  </div>
 </div>

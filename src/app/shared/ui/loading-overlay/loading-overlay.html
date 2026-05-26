@@ -1,11 +1,13 @@
 @if (visible()) {
   <div class="overlay">
     <div class="loader-container">
-
-      <div class="spinner"></div>
+      <div class="loading-envelope" aria-hidden="true">
+        <div class="loading-envelope__body"></div>
+        <div class="loading-envelope__flap"></div>
+        <div class="loading-envelope__seal">D<span>&</span>P</div>
+      </div>
 
       <p class="message">{{ message() }}</p>
-
     </div>
   </div>
 }

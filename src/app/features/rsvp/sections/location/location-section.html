@@ -1,36 +1,30 @@
 <section class="location">
-  <header class="location-header">
+  <header class="location__header">
     <h2>{{ title() }}</h2>
   </header>
 
-  <div class="venue-grid">
-    @for (venue of venues(); track venue.name; let index = $index) {
-      <article
-        class="venue"
-        [class.venue-church]="index === 0"
-        [class.venue-reception]="index === 1"
-      >
+  <div class="location__venue-grid">
+    @for (venue of venues(); track venue.name) {
+      <article class="location__venue">
         <a
-          class="venue-image-link"
+          class="location__image-link"
           [href]="venue.maps"
           target="_blank"
           rel="noopener noreferrer"
           [attr.aria-label]="getMapAriaLabel(venue)"
         >
-          <img
-            [src]="venue.image"
-            [alt]="venue.name"
-          />
+          <img [src]="venue.image" [alt]="venue.name" />
         </a>
 
-        <div class="venue-caption">
-          <div class="venue-caption-main">
+        <div class="location__caption">
+          <div class="location__caption-main">
             <span>{{ venue.label }}</span>
             <h3>{{ venue.name }}</h3>
             <p>{{ venue.address }}</p>
           </div>
+
           <a
-            class="map-link"
+            class="location__map-link"
             [href]="venue.maps"
             target="_blank"
             rel="noopener noreferrer"

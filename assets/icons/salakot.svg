@@ -1,20 +1,33 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 28" width="24" height="24" aria-hidden="true" role="img">
-  <!-- Hand-traced outline salakot (stroke-only) matching reference photo: taller narrow cone, stronger tilt, anchored brim -->
-  <g transform="rotate(-30 12 12)">
-    <!-- outer brim (irregular, open curve) -->
-    <path d="M1.8 13.0 C4.6 8.6 8.8 6.0 12.2 5.6 c3.4-0.4 7.8 2.2 10.4 6.2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<svg
+  width="128"
+  height="128"
+  viewBox="0 0 128 128"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <g stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Top knot -->
+    <path d="M61 28L64 20L67 28" />
 
-    <!-- inner brim -->
-    <path d="M5.2 15.0 C7.0 16.2 10.0 17.8 12.2 17.8 s5.2-1.6 7.0-2.8" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
+    <!-- Main brim -->
+    <path d="M25 75C25 39 47 22 64 22C81 22 103 39 108 74" />
 
-    <!-- pointed cone (narrower & taller) -->
-    <path d="M12.0 2.2 L17.2 14.0 C16.0 14.8 14.0 15.2 12.0 15.2 C10.0 15.2 8.0 14.8 6.8 14.0 L12.0 2.2 Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Brim edge -->
+    <path d="M26 76C38 84 50 88 64 88C78 88 90 84 108 74" />
 
-    <!-- cone base curve anchored to brim (prevents floating look) -->
-    <path d="M7.8 14.0 C9.6 15.0 14.4 15.0 16.2 14.0" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
 
-    <!-- subtle inner texture strokes (keeps silhouette readable at small sizes) -->
-    <path d="M11.2 6.2 C11.8 6.6 12.2 6.6 12.8 6.2" fill="none" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" opacity="0.9"/>
-    <path d="M10.6 8.6 C11.6 9.2 12.4 9.2 13.4 8.6" fill="none" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" opacity="0.85"/>
+
+    <!-- Crown base band -->
+    <path d="M39 60C47 65 56 68 64 68C80 68 81 65 89 60" />
+
+<!--    &lt;!&ndash; Weave details &ndash;&gt;-->
+<!--    <path d="M30 66L45 92" />-->
+<!--    <path d="M44 58L58 98" />-->
+<!--    <path d="M64 54V102" />-->
+<!--    <path d="M84 58L70 98" />-->
+<!--    <path d="M98 66L83 92" />-->
+
+    <!-- Inner brim texture -->
+<!--    <path d="M24 74C38 84 50 88 64 88C78 88 90 84 104 74" />-->
   </g>
 </svg>

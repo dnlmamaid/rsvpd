@@ -46,7 +46,7 @@ export class AttireSection {
   };
 
   private readonly cerulean: AttireColorSet = {
-    name: 'Cerulean',
+    name: 'Bughaw',
     role: 'Abay',
     hexes: ['#00819f', '#00749f', '#00679f', '#005a9f', '#004c9f'],
   };
@@ -58,13 +58,13 @@ export class AttireSection {
   };
 
   private readonly olive: AttireColorSet = {
-    name: 'Olive',
+    name: 'Luntian',
     role: 'Guests',
     hexes: ['#a2c183', '#9dc183', '#98c183', '#93c183', '#8ec183'],
   };
 
   private readonly goldSet: AttireColorSet = {
-    name: 'Gold',
+    name: 'Dilaw',
     role: 'Guests',
     hexes: ['#ffc200', '#ffd700', '#ffec00', '#fdff00', '#e7ff00'],
   };

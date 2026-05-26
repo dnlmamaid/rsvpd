@@ -20,11 +20,16 @@
   min-height: 100%;
   scroll-snap-align: start;
   display: grid;
-  &#hero, &#rsvp, &#reminders {
+  &#hero,
+  &#rsvp,
+  &#reminders {
     padding: 0;
   }
 
-  &#attire, &#location, &#rsvp, &#reminders {
+  &#attire,
+  &#location,
+  &#rsvp,
+  &#reminders {
     background:var(--tertiary-bg);
   }
 }

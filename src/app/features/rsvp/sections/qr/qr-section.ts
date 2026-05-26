@@ -4,6 +4,7 @@ import { Component, signal } from "@angular/core";
 interface QrCode {
   title: string;
   image: string;
+  imageAlt: string;
 }
 
 @Component({
@@ -14,9 +15,6 @@ interface QrCode {
   styleUrl: "./qr-section.scss",
 })
 export class QrSection {
-  readonly backgroundStyle = {
-    backgroundImage: `url(assets/images/bg-4.png)`
-  };
 
   readonly title = signal("Handog sa mag-irog");
 
@@ -25,25 +23,29 @@ export class QrSection {
   );
 
   readonly message = signal(
-    "Kung nais ninyong magbahagi, maaari ninyong gamitin itong mga QR code sa ibaba para sa aming bagong simula."
+    "Ngunit kung nais ninyo talagang magbahagi, maaari ninyong gamitin ang mga QR code sa ibaba para sa aming bagong simula."
   );
 
   readonly qrCodes = signal<QrCode[]>([
     {
       title: "BPI",
-      image: "assets/images/qr-dan-bpi.png"
+      image: "assets/images/qr-dan-bpi.png",
+      imageAlt: 'BPI QR Code',
     },
     {
       title: "GoTyme",
-      image: "assets/images/qr-dan-gotyme.png"
+      image: "assets/images/qr-dan-gotyme.png",
+      imageAlt: 'GoTyme QR Code',
     },
     {
       title: "GCash",
-      image: "assets/images/qr-pat-gcash.png"
+      image: "assets/images/qr-pat-gcash.png",
+      imageAlt: 'GCash QR Code',
     },
     {
       title: "Maya",
-      image: "assets/images/qr-pat-maya.png"
+      image: "assets/images/qr-pat-maya.png",
+      imageAlt: 'Maya QR Code',
     }
   ]);
 }

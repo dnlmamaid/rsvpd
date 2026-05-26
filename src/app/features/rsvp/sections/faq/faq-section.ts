@@ -1,4 +1,5 @@
 import { Component, signal } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
 interface FaqItem {
   question: string;
@@ -7,12 +8,12 @@ interface FaqItem {
 
 @Component({
   selector: "app-faq-section",
-  imports: [],
+  imports: [CommonModule],
   templateUrl: "./faq-section.html",
   styleUrl: "./faq-section.scss",
 })
 export class FaqSection {
-  readonly title = 'Mga Katanungan';
+  readonly title = 'Mga katanungan';
 
   readonly faqs = signal<FaqItem[]>([
     {
@@ -27,6 +28,7 @@ export class FaqSection {
       answers: [
         'Elevated ang simbahan at nasa labas ng gated compound ang parking kaya kailangang maglakad nang bahagya.',
         'Kapag nakaharap sa bukana ng simbahan, nasa kaliwang bahagi ang parking (San Francisco cor. San Juan Sts.).',
+        'Maaari ring pumarada sa palibot ng gate ng simbahan, ngunit maging mindful na hindi makaaabala o makasasagabal sa daan.',
         'Sa Maravilloza naman, pumasok sa brown gate at bubungad ang malawak na parking.',
         'May nakalaan ding slots para sa seniors at PWD guests.'
       ]
@@ -34,8 +36,7 @@ export class FaqSection {
     {
       question: 'Ano ang dapat isuot?',
       answers: [
-        'Semi-formal attire inspired by Filipiniana o Barong ang hinihiling naming suotin ninyo.',
-        'Piliin ang kasuotang magaan at komportable.'
+        'Ang tema ay pistang Filipino. Piliin ang kasuotang magaan at komportable sa inyo. Ngunit pakiusap, iwasan ang pagsuot ng maong na pantalon, shorts, slides, flip flops, o de goma na tsinelas. Makikita ang kasuotan sa pahina bago ito. ',
       ]
     },
     {

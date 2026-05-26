@@ -1,13 +1,19 @@
 <section class="reminders">
-  <div class="reminders-grid">
-    <div class="couple-photo" [ngStyle]="backgroundStyle" aria-hidden="true"></div>
+  <div class="reminders-container">
+    <div class="reminders-grid">
+      <div class="couple-photo" [ngStyle]="coupleImage" aria-hidden="true"></div>
 
-    <div class="reminders-card">
-      <h2 class="title">{{ title }}</h2>
+      <div class="reminders-card">
+        <h2 class="title">{{ title }}</h2>
 
-      <p class="lead">Huwag kalimutang mag-RSVP<br>bago o sa ika-23 ng Nobyembre 2026.</p>
-      <p class="assist">Para sa iba pang katanungan, maaari ninyo itong ipadala sa amin.</p>
-      <p class="closing">Kitakits sa araw ng aming pag-iisang dibdib!</p>
+        <p class="lead">
+          @for (line of leadLines; track line) {
+            {{ line }}@if (!$last) { <br /> }
+          }
+        </p>
+        <p class="assist">{{assist}}</p>
+        <p class="closing">{{closing}}</p>
+      </div>
     </div>
   </div>
 </section>

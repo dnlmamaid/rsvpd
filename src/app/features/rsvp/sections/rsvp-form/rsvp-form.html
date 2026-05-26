@@ -4,22 +4,22 @@
 
     @if (isSubmitted()) {
       <div class="rsvp-card success">
-        <h2>Lubos na pasasalamat 💖</h2>
-        <p>Ang iyong tugon ay aming natanggap.</p>
+        <h2>{{ copy.submittedTitle }}</h2>
+        <p>{{ copy.submittedMessage }}</p>
       </div>
     } @else {
 
       <div class="rsvp-card">
 
-        <h2 class="title">Maligayang pagdating {{ i.name }} 👋</h2>
+        <h2 class="title">{{ copy.welcomePrefix }} {{ i.name }} {{ copy.welcomeSuffix }}</h2>
 
         <p class="seats">
-          May nakalaang <strong>{{ i.guests }}</strong> upuan para sa iyo
+          {{ copy.seatsPrefix }} <strong>{{ i.guests }}</strong> {{ copy.seatsSuffix }}
         </p>
 
         <!-- Attending -->
         <div class="field">
-          <label>Ikaw ba ay makakadalo?</label>
+          <label>{{ copy.attendingLabel }}</label>
 
           <div class="toggle">
             <button
@@ -28,7 +28,7 @@
               type="button"
               [class.active]="attending() === true"
               (click)="attending.set(true)">
-              Oo, makakadalo ako
+              {{ copy.acceptLabel }}
             </button>
 
             <button
@@ -37,7 +37,7 @@
               type="button"
               [class.active]="attending() === false"
               (click)="attending.set(false)">
-              Hindi ako makakadalo
+              {{ copy.declineLabel }}
             </button>
           </div>
         </div>
@@ -45,21 +45,21 @@
         <!-- Guests -->
         @if (showGuestInputs()) {
           <div class="field">
-            <label>Mga Pangalan ng Bisita</label>
+            <label>{{ copy.guestNamesLabel }}</label>
 
             @for (name of guestNames(); track $index; let i = $index) {
               <input
                 type="text"
                 [value]="name"
                 (input)="updateGuest(i, $any($event.target).value)"
-                [placeholder]="'Guest ' + (i + 1)"
+                [placeholder]="getGuestPlaceholder(i)"
               />
             }
           </div>
         }
         <!-- Message -->
         <div class="field">
-          <label>Mensahe para sa ikakasal</label>
+          <label>{{ copy.messageLabel }}</label>
           <textarea
             [value]="message()"
             (input)="message.set($any($event.target).value)">
@@ -68,10 +68,10 @@
 
         <!-- Contact -->
         <div class="field">
-          <label>Email o numero ng telepono</label>
+          <label>{{ copy.contactLabel }}</label>
           <input
             type="text"
-            placeholder="Email or mobile"
+            [placeholder]="copy.contactPlaceholder"
             [value]="contactInfo()"
             (input)="contactInfo.set($any($event.target).value)"
           />
@@ -91,9 +91,9 @@
           (click)="submit()">
 
           @if (loading()) {
-            Isinusumite ang iyong tugon...
+            {{ copy.submittingLabel }}
           } @else {
-            Isumite ang Tugon
+            {{ copy.submitLabel }}
           }
 
         </button>
@@ -103,7 +103,7 @@
 
   } @else {
     <div class="rsvp-card">
-      <p>Loading...</p>
+      <p>{{ copy.loadingLabel }}</p>
     </div>
   }
 

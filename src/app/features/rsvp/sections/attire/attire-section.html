@@ -1,8 +1,10 @@
-<section class="attire" [ngStyle]="backgroundStyle">
+<section class="attire">
   <div class="header">
     <h2>{{ title() }}</h2>
+
     <div class="role-guide">
-      <span>Bilang</span>
+      <span>{{ roleIntro }}</span>
+
       <strong>{{ guide().label }}</strong>
 
       <div class="role-palette">
@@ -11,9 +13,13 @@
             <div class="swatch-set">
               <div class="swatch-mini-group">
                 @for (hex of set.hexes; track hex) {
-                  <span class="swatch-mini" [style.background]="hex"></span>
+                  <span
+                    class="swatch-mini"
+                    [style.background]="hex"
+                  ></span>
                 }
               </div>
+
               <strong>{{ set.name }}</strong>
             </div>
           }
@@ -24,9 +30,13 @@
             <div class="swatch-set">
               <div class="swatch-mini-group">
                 @for (hex of set.hexes; track hex) {
-                  <span class="swatch-mini" [style.background]="hex"></span>
+                  <span
+                    class="swatch-mini"
+                    [style.background]="hex"
+                  ></span>
                 }
               </div>
+
               <strong>{{ set.name }}</strong>
             </div>
           }
@@ -37,19 +47,24 @@
 
   <div class="layout">
     <div class="guide">
-      <h3>Para sa mga Lalaki</h3>
-      @for (line of maleLines(); track line) {
+      <h3>{{ maleTitle }}</h3>
+
+      @for (line of guide().maleLines; track line) {
         <p>{{ line }}</p>
       }
     </div>
 
     <div class="art">
-      <img src="/assets/images/kasuotan.png" alt="Filipiniana attire guide" />
+      <img
+        [src]="guide().image.src"
+        [alt]="guide().image.alt"
+      />
     </div>
 
     <div class="guide">
-      <h3>Para sa mga Babae</h3>
-      @for (line of femaleLines(); track line) {
+      <h3>{{ femaleTitle }}</h3>
+
+      @for (line of guide().femaleLines; track line) {
         <p>{{ line }}</p>
       }
     </div>

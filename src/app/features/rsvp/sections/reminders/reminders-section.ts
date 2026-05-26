@@ -8,13 +8,20 @@ import {CommonModule} from "@angular/common";
   styleUrl: './reminders-section.scss',
 })
 export class RemindersSection {
-  readonly title = 'Paalaala';
+  readonly title = 'Paalala';
 
-  // Provide the background style object (program-section pattern)
-  readonly backgroundStyle = {
+  readonly coupleImage = {
     backgroundImage: `url(assets/images/dan-pat.jpg)`,
     backgroundSize: 'cover',
     backgroundPosition: 'center'
   };
-}
 
+
+
+  readonly leadLines = [
+    'Huwag kalimutang mag-RSVP',
+    'bago o sa ika-23 ng Nobyembre 2026.',
+  ];
+  readonly assist = `Para sa iba pang katanungan, message niyo lang kami.`;
+  readonly closing = `Kitakits sa araw ng aming pag-iisang dibdib!`;
+}

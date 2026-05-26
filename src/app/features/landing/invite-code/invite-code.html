@@ -1,7 +1,7 @@
-<div class="landing" [ngStyle]="backgroundStyle">
+<div class="landing">
     <div class="card">
-        <h1 class="title">Isang Paanyaya! 💌</h1>
-        <p class="subtitle">itala ang iyong invitation code</p>
+        <h1 class="title">{{ copy.title }}</h1>
+        <p class="subtitle">{{ copy.subtitle }}</p>
         <input class="invite-input"
                type="text"
                [value]="code()"
@@ -14,9 +14,9 @@
                 [disabled]="!code().trim() || loading()"
                 (click)="submit()">
             @if (loading()) {
-              Inihahanda ang iyong paanyaya...
+              {{ copy.loadingButton }}
             } @else {
-              Magpatuloy
+              {{ copy.submitButton }}
             }
         </button>
     </div>

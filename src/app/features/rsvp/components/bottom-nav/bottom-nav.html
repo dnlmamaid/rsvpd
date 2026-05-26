@@ -1,17 +1,12 @@
 <nav class="bottom-nav">
-    <button (click)="scrollTo('hero')" [class.active]="active() === 'hero'">
-        <lucide-icon name="house"></lucide-icon>
-    </button>
-
-    <button (click)="scrollTo('entourage')" [class.active]="active() === 'entourage'">
-        <lucide-icon name="users"></lucide-icon>
-    </button>
-
-    <button (click)="scrollTo('location')" [class.active]="active() === 'location'">
-        <lucide-icon name="map-pin"></lucide-icon>
-    </button>
-
-    <button (click)="scrollTo('rsvp')" [class.active]="active() === 'rsvp'">
-        <lucide-icon name="mail"></lucide-icon>
-    </button>
+    @for (item of items; track item.id) {
+        <button (click)="scrollTo(item.id)" [class.active]="active() === item.id">
+            @if (item.icon) {
+                <lucide-icon [name]="item.icon"></lucide-icon>
+            }
+            @if (item.image) {
+                <img [src]="item.image" [alt]="item.alt" width="24" height="24" />
+            }
+        </button>
+    }
 </nav>

@@ -1,21 +1,21 @@
 :host {
   display: block;
+  height: 100%;
   min-height: 100%;
 }
 
 .location {
+  height: 100%;
   min-height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  padding: clamp(2rem, 5vw, 4rem);
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: clamp(2rem, 5vw, 4rem);
   color: #3f2a1d;
 
-  /* background pattern for location */
-  /* anchor image to bottom so important lower details aren't cropped */
-  background-position: center bottom;
-  background-size: cover;
-  background-repeat: no-repeat;
   position: relative;
 }
 

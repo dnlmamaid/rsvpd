@@ -14,10 +14,6 @@ interface ProgramItem {
   styleUrl: "./program-section.scss",
 })
 export class ProgramSection {
-  readonly backgroundStyle = {
-    backgroundImage: `url(assets/images/program-bg.png)`
-  };
-
   readonly title = signal("Programa");
 
   readonly items = signal<ProgramItem[]>([

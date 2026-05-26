@@ -1,7 +1,19 @@
+
+:host {
+  display: block;
+  min-height: 100%;
+}
+
 .rsvp-container {
+  min-height: 100%;
+  width: 100%;
+  box-sizing: border-box;
   display: flex;
+  align-items: center;
   justify-content: center;
   padding: min(6vw, 60px) 16px;
+
+  position: relative;
 }
 
 .rsvp-card {

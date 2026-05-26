@@ -1,4 +1,4 @@
-<section class="qr" [ngStyle]="backgroundStyle">
+<section class="qr">
   <div class="content">
     <h2 class="title">{{ title() }}</h2>
     <p class="subtitle">{{ subtitle() }}</p>
@@ -7,7 +7,7 @@
       @for (qr of qrCodes(); track qr.title) {
         <div class="qr-card">
           <h3>{{ qr.title }}</h3>
-          <img [src]="qr.image" [alt]="qr.title + ' QR Code'" />
+          <img [src]="qr.image" [alt]="qr.imageAlt" />
         </div>
       }
     </div>

@@ -17,9 +17,12 @@ export class InviteCode {
   private store = inject(InviteStore);
   private loadingStore = inject(LoadingStore);
 
-  readonly backgroundStyle = {
-    backgroundImage: `url(assets/images/hero-bg.png)`
-  };
+  readonly copy = {
+    title: 'Isang Paanyaya!',
+    subtitle: 'itala ang iyong invitation code',
+    loadingButton: 'Inihahanda ang iyong paanyaya...',
+    submitButton: 'Magpatuloy',
+  } as const;
 
   code = signal('');
   loading = this.loadingStore.loading;

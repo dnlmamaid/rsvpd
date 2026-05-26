@@ -7,7 +7,7 @@
     <section id="faq"><app-faq-section /></section>
     <section id="rsvp">
       @if (loading()) {
-        <p class="center">Hinahanap ang iyong imbitasyon...</p>
+        <p class="center">{{ loadingLabel }}</p>
       }
       @if (error()) {
         <p class="error">{{ error() }}</p>

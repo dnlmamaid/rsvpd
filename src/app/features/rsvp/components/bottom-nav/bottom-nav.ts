@@ -1,16 +1,33 @@
 import { Component, signal, AfterViewInit } from '@angular/core';
 import {LucideAngularModule} from "lucide-angular";
+import { CommonModule } from '@angular/common';
+
+interface NavItem {
+  id: string;
+  icon?: string;
+  image?: string;
+  alt?: string;
+}
 
 @Component({
   selector: 'app-bottom-nav',
-  imports: [LucideAngularModule],
+  imports: [CommonModule, LucideAngularModule],
   templateUrl: './bottom-nav.html',
   styleUrl: './bottom-nav.scss'
 })
 export class BottomNav implements AfterViewInit {
   active = signal('hero');
 
-  sections = ['hero', 'entourage', 'location', 'rsvp'];
+  readonly items: NavItem[] = [
+    { id: 'hero', icon: 'house' },
+    { id: 'location', icon: 'map-pin' },
+    {
+      id: 'attire', icon: 'users'
+    },
+    { id: 'rsvp', icon: 'mail' },
+  ];
+
+  readonly sections = this.items.map(item => item.id);
 
   ngAfterViewInit() {
     const observer = new IntersectionObserver(

@@ -5,13 +5,22 @@ import { Invite } from '../../rsvp.types';
 interface AttireColorSet {
   name: string;
   role: string;
-  hexes: string[]; // multiple hex variants for the set
+  hexes: string[];
 }
 
 interface AttireGuide {
   label: string;
   description: string;
+
+  image: {
+    src: string;
+    alt: string;
+  };
+
   colors: AttireColorSet[];
+
+  maleLines: string[];
+  femaleLines: string[];
 }
 
 @Component({
@@ -26,11 +35,10 @@ export class AttireSection {
 
   readonly title = signal('Kasuotan');
 
-  readonly backgroundStyle = {
-    backgroundImage: `url(assets/images/bg-kasuotan.png)`
-  };
+  readonly roleIntro = 'Para sa mga';
+  readonly maleTitle = 'Para sa mga Lalaki';
+  readonly femaleTitle = 'Para sa mga Babae';
 
-  // Palette sets (each is a small family of hex variants)
   private readonly champagne: AttireColorSet = {
     name: 'Champagne',
     role: 'Base color',
@@ -39,18 +47,18 @@ export class AttireSection {
 
   private readonly cerulean: AttireColorSet = {
     name: 'Cerulean',
-    role: 'Entourage / Abay',
+    role: 'Abay',
     hexes: ['#00819f', '#00749f', '#00679f', '#005a9f', '#004c9f'],
   };
 
   private readonly terracotta: AttireColorSet = {
     name: 'Terracotta',
-    role: 'Principal Sponsors',
+    role: 'Ninong at Ninang',
     hexes: ['#cb5d43', '#cb6843', '#cb7343', '#cb7f43', '#cb8a43'],
   };
 
-  private readonly mutedOlive: AttireColorSet = {
-    name: 'Muted Olive',
+  private readonly olive: AttireColorSet = {
+    name: 'Olive',
     role: 'Guests',
     hexes: ['#a2c183', '#9dc183', '#98c183', '#93c183', '#8ec183'],
   };
@@ -63,70 +71,93 @@ export class AttireSection {
 
   private readonly guestGuides: Record<0 | 1 | 2, AttireGuide> = {
     0: {
-      label: 'Principal Sponsors/Ninong at Ninang',
+      label: 'Ninong at Ninang',
+
       description:
-        "Para sa mga Ninong at Ninang, gamitin ang Champagne bilang base at Terracotta bilang pangunahing accent color.",
+        'Para sa mga Ninong at Ninang, gamitin ang Champagne bilang base at Terracotta bilang pangunahing accent color.',
+
+      image: {
+        src: 'assets/images/kasuotan-principal-sponsors.png',
+        alt: 'Principal sponsors attire guide',
+      },
+
       colors: [this.champagne, this.terracotta],
+
+      maleLines: [
+        'Barong Tagalog',
+        'Kamisa de Tsino',
+        'Itim/Neutral na kulay ng Pantalon',
+      ],
+
+      femaleLines: [
+        'Moderno o Tradisyonal na Filipiniana Gown/Maxi Dress',
+      ],
     },
+
     1: {
-      label: 'Entourage / Abay',
+      label: 'Abay',
+
       description:
         'Para sa entourage, gamitin ang Champagne bilang base at Cerulean bilang pangunahing accent color.',
+
+      image: {
+        src: 'assets/images/kasuotan-entourage.png',
+        alt: 'Entourage attire guide',
+      },
+
       colors: [this.champagne, this.cerulean],
+
+      maleLines: [
+        'Barong Tagalog',
+        'Kamisa de Tsino',
+        'Itim/Neutral na kulay ng Pantalon',
+      ],
+
+      femaleLines: [
+        'Moderno o Tradisyonal na Filipiniana Gown/Maxi Dress',
+      ],
     },
+
     2: {
       label: 'Pamilya at Kaibigan',
+
       description:
         'Para sa pamilya at mga kaibigan, gamitin ang Champagne bilang base at pumili ng Muted Olive o Gold bilang accent color.',
-      colors: [this.champagne, this.mutedOlive, this.goldSet],
+
+      image: {
+        src: 'assets/images/kasuotan-general.png',
+        alt: 'Guest attire guide',
+      },
+
+      colors: [this.champagne, this.olive, this.goldSet],
+
+      maleLines: [
+        'Semi-formal',
+        'Barong-inspired attire',
+        'Polo (Long/Short Sleeves)',
+        'Pantalon',
+      ],
+
+      femaleLines: [
+        'Semi-formal',
+        'Filipiniana-inspired attire',
+        'Midi Dress',
+        'Blusa at Pantalon/Palda',
+      ],
     },
   };
 
   readonly guide = computed(() => {
     const guestType = Number(this.invite()?.guestType);
 
-    if (guestType === 0 || guestType === 1 || guestType === 2) {
-      return this.guestGuides[guestType as 0 | 1 | 2];
-    }
-
-    return this.guestGuides[2];
-  });
-
-  // Provide per-gender lines depending on guest type. For family & friends (2)
-  // use the new semi-formal definitions; otherwise keep the existing wording.
-  readonly maleLines = computed(() => {
-    const guestType = Number(this.invite()?.guestType);
-    if (guestType === 2) {
-      return [
-        'Semi-formal',
-        'Barong-inspired attire',
-        'Polo (Long/Short Sleeves)',
-        'Pantalon',
-      ];
-    }
-
-    return ['Barong Tagalog', 'Kamisa de Tsino', 'Itim/Neutral na kulay na Pantalon'];
-  });
-
-  readonly femaleLines = computed(() => {
-    const guestType = Number(this.invite()?.guestType);
-    if (guestType === 2) {
-      return [
-        'Semi-formal',
-        'Filipiniana-inspired attire',
-        'Midi Dress',
-        'Blouse at Pantalon/Palda',
-      ];
-    }
-
-    return ['Moderno o Tradisyonal na Filipiniana Gown/Maxi Dress'];
+    return this.guestGuides[guestType as 0 | 1 | 2] ?? this.guestGuides[2];
   });
 
   readonly fullPalette = signal<AttireColorSet[]>([
     this.champagne,
     this.cerulean,
     this.terracotta,
-    this.mutedOlive,
+    this.olive,
     this.goldSet,
   ]);
 }

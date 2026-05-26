@@ -39,24 +39,21 @@ export class RsvpPage {
 
   loading = signal(true);
   error = signal<string | null>(null);
+  readonly loadingLabel = 'Hinahanap ang iyong imbitasyon...';
 
-  // 🔥 main logic
   loadEffect = effect(() => {
     const code = this.route.snapshot.queryParamMap.get("code");
 
-    // ❌ no code → go landing
     if (!code) {
       this.router.navigateByUrl('/');
       return;
     }
 
-    // ✅ already loaded → skip API
     if (this.store.invite()?.code === code) {
       this.loading.set(false);
       return;
     }
 
-    // 🔁 fetch fallback
     this.loading.set(true);
 
     this.service.getInvite(code)

@@ -8,16 +8,9 @@
   grid-template-columns: 52% 48%;
   align-items: center;
 
-  background-size: auto 108%;
-  background-repeat: no-repeat;
-  background-position: right center;
-
   @media (max-width: 900px) {
     grid-template-columns: 1fr;
     padding-top: 120px;
-
-    background-position: center top;
-    background-size: cover;
   }
 }
 

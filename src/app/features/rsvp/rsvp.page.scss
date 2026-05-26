@@ -19,24 +19,16 @@
 .container section {
   min-height: 100%;
   scroll-snap-align: start;
-
   padding: clamp(2rem, 5vw, 4rem);
-
-  &#hero {
+  display: grid;
+  &#hero, &#rsvp, &#reminders {
     padding: 0;
   }
 
-  &#attire{
-    background:var(--tertiary-bg);
-  }
-  &#location {
+  &#attire, &#location, &#rsvp, &#reminders {
     background:var(--tertiary-bg);
   }
   &#faq {
-    background: #f7f3ee;
-  }
-
-  &#qr {
-    background: #fff6e6;
+    //background: #f7f3ee;
   }
 }

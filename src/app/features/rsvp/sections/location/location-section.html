@@ -1,4 +1,4 @@
-<section class="location" [ngStyle]="backgroundStyle">
+<section class="location">
   <header class="location-header">
     <h2>{{ title() }}</h2>
   </header>
@@ -15,7 +15,7 @@
           [href]="venue.maps"
           target="_blank"
           rel="noopener noreferrer"
-          [attr.aria-label]="'Open ' + venue.name + ' in Google Maps'"
+          [attr.aria-label]="getMapAriaLabel(venue)"
         >
           <img
             [src]="venue.image"
@@ -34,9 +34,9 @@
             [href]="venue.maps"
             target="_blank"
             rel="noopener noreferrer"
-            [attr.aria-label]="'Open ' + venue.name + ' in Google Maps'"
+            [attr.aria-label]="getMapAriaLabel(venue)"
           >
-            <lucide-icon name="map-pin" size="20" />
+            <lucide-icon [name]="mapIconName" [size]="mapIconSize" />
           </a>
         </div>
       </article>

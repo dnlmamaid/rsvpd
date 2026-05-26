@@ -1,8 +1,22 @@
+:host {
+  display: block;
+  min-height: 100%;
+}
+
 .reminders {
-  max-width: 1000px;
+  min-height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  color: #3f2a1d;
+}
+
+.reminders-container {
+  width: min(100%, 1000px);
   margin: 0 auto;
   padding: min(10vw, 80px) min(6vw, 40px);
-  color: #3f2a1d;
+  box-sizing: border-box;
 }
 
 .reminders-grid {

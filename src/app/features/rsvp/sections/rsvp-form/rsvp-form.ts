@@ -23,6 +23,25 @@ export class RsvpForm {
   private service = inject(RsvpService);
   private readonly store = inject(LoadingStore);
 
+  readonly copy = {
+    submittedTitle: 'Lubos na pasasalamat 💖',
+    submittedMessage: 'Ang iyong tugon ay aming natanggap.',
+    welcomePrefix: 'Maligayang pagdating',
+    welcomeSuffix: '👋',
+    seatsPrefix: 'May nakalaang',
+    seatsSuffix: 'upuan para sa iyo',
+    attendingLabel: 'Ikaw ba ay makakadalo?',
+    acceptLabel: 'Oo, makakadalo ako',
+    declineLabel: 'Hindi ako makakadalo',
+    guestNamesLabel: 'Mga Pangalan ng Bisita',
+    messageLabel: 'Mensahe para sa mag-irog',
+    contactLabel: 'Mobile number',
+    contactPlaceholder: 'Email or mobile',
+    submittingLabel: 'Isinusumite ang iyong tugon...',
+    submitLabel: 'Isumite ang Tugon',
+    loadingLabel: 'Loading...',
+  } as const;
+
   invite = input<Invite | null>(null);
   submitted = output<void>();
 
@@ -82,6 +101,10 @@ export class RsvpForm {
       copy[index] = value;
       return copy;
     });
+  }
+
+  getGuestPlaceholder(index: number): string {
+    return `Guest ${index + 1}`;
   }
 
   submit() {

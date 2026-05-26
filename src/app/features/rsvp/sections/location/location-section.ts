@@ -19,10 +19,8 @@ interface Venue {
 })
 export class LocationSection {
   readonly title = signal("Lokasyon");
-
-  readonly backgroundStyle = {
-    backgroundImage: `url(assets/images/bg-location.png)`
-  };
+  readonly mapIconName = 'map-pin';
+  readonly mapIconSize = 20;
 
   readonly subtitle = signal(
     "Narito ang mga lugar para sa seremonya at salu-salo."
@@ -34,16 +32,20 @@ export class LocationSection {
       name: "Our Lady of Mt. Carmel Parish",
       description: "Dito gaganapin ang pag-iisang dibdib.",
       image: "assets/images/church-carmel.png",
-      address: "Sabang, XW89+M2R, Baliwag, Bulacan",
+      address: "Sabang, Baliwag, Bulacan",
       maps: "https://maps.app.goo.gl/bAYzQcj3xDUmVLBz6"
     },
     {
       label: "Salusalo",
-      name: "Maravilloza Events Place",
+      name: "Maravilloza Events Center",
       description: "Dito susundan ang salusalo at pagdiriwang.",
       image: "assets/images/reception-maravilloza.png",
-      address: "M. H. Del Pilar, Dampol I, Pulilan, 3005 Bulacan",
+      address: "Dampol I, Pulilan, Bulacan",
       maps: "https://maps.app.goo.gl/7mV1wLzxuCSYDnFP9"
     },
   ]);
+
+  getMapAriaLabel(venue: Venue): string {
+    return `Open ${venue.name} in Google Maps`;
+  }
 }

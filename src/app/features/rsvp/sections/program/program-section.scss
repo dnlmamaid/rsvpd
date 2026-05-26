@@ -4,10 +4,6 @@
   width: 100%;
   overflow: hidden;
 
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: left center;
-
   display: grid;
   grid-template-columns: 48% 52%;
   align-items: center;
@@ -15,9 +11,6 @@
   @media (max-width: 900px) {
     grid-template-columns: 1fr;
     padding-top: 120px;
-
-    background-position: center top;
-    background-size: cover;
     opacity: 0.95;
   }
 }

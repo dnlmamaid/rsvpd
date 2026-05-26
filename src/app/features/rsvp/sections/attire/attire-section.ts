@@ -25,7 +25,6 @@ interface AttireGuide {
 
 @Component({
   selector: 'app-attire-section',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './attire-section.html',
   styleUrl: './attire-section.scss',

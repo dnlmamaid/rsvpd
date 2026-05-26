@@ -5,7 +5,10 @@
                 <lucide-icon [name]="item.icon"></lucide-icon>
             }
             @if (item.image) {
-                <img [src]="item.image" [alt]="item.alt" width="24" height="24" />
+              <app-custom-icon
+                [src]="item.image"
+                [size]="34"
+              />
             }
         </button>
     }

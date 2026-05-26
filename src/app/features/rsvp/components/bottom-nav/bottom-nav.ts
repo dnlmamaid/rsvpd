@@ -1,6 +1,7 @@
 import { Component, signal, AfterViewInit } from '@angular/core';
 import {LucideAngularModule} from "lucide-angular";
 import { CommonModule } from '@angular/common';
+import {CustomIcon} from "../custom-icon/custom-icon";
 
 interface NavItem {
   id: string;
@@ -11,7 +12,7 @@ interface NavItem {
 
 @Component({
   selector: 'app-bottom-nav',
-  imports: [CommonModule, LucideAngularModule],
+  imports: [CommonModule, LucideAngularModule, CustomIcon],
   templateUrl: './bottom-nav.html',
   styleUrl: './bottom-nav.scss'
 })
@@ -22,7 +23,9 @@ export class BottomNav implements AfterViewInit {
     { id: 'hero', icon: 'house' },
     { id: 'location', icon: 'map-pin' },
     {
-      id: 'attire', icon: 'users'
+      id: 'attire',
+      image: 'assets/icons/filipino-salakot-icon.svg',
+      alt: 'Attire',
     },
     { id: 'rsvp', icon: 'pen-tool' },
   ];

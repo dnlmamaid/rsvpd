@@ -1,0 +1,20 @@
+@mixin section-background(
+  $image,
+  $overlay: rgb(255 252 248 / 0.84),
+  $position: center,
+  $size: cover
+) {
+  position: relative;
+  isolation: isolate;
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    background-size: $size;
+    background: url('#{$image}') no-repeat $position;
+  }
+}

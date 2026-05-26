@@ -1,66 +1,146 @@
-  .hero {
-    position: relative;
+@use '../../../../shared/styles/section-background.mixin' as *;
 
-    width: 100%;
-    height: 100vh;
+:host {
+  display: block;
+  height: 100%;
+  min-height: 100%;
+}
 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+.hero {
+  @include section-background(
+          '/assets/images/backgrounds/bg-hero.webp',
+          rgb(255 246 230 / 0.18),
+          center,
+          cover
+  );  
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--primary-text);
-  }
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  padding: clamp(2rem, 5vw, 4rem);
+  box-sizing: border-box;
 
-  /* Overlay for readability */
-  .overlay {
-    position: absolute;
-    inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    background: linear-gradient(
-            to bottom,
-            rgba(0, 0, 0, 0.4),
-            rgba(0, 0, 0, 0.2),
-            rgba(0, 0, 0, 0.5)
-    );
-    //backdrop-filter: blur(2px); // subtle premium feel
-  }
+  color: var(--primary-text);
+  text-align: center;
+  overflow: hidden;
 
-  /* Content layer */
-  .content {
-    position: relative;
-    z-index: 1;
+  &__content {
+    width: min(100%, 820px);
 
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    align-items: center;
 
-    max-width: min(90vw, 500px);
     animation: fadeIn 1.2s ease forwards;
   }
 
-  .names {
-    font-size: clamp(4rem, 12vw, 7rem);
+  &__monogram {
+    width: clamp(120px, 18vw, 220px);
+    height: auto;
+    margin-bottom: clamp(1rem, 2vw, 1.5rem);
+    display: block;
   }
 
-  .date {
-    font-size: clamp(1rem, 3vw, 1.4rem);
+  &__intro {
+    margin: 0;
+
+    font-family: var(--font-subheading), serif;
+    color: var(--primary-text);
+    font-size: clamp(1.45rem, 3.2vw, 2.25rem);
+    font-weight: 600;
+    line-height: 1.15;
   }
 
-  .location {
-    font-size: 0.9rem;
-    opacity: 0.9;
+  &__wedding-label {
+    margin: clamp(1.5rem, 3vw, 2rem) 0 0;
+
+    font-family: var(--font-script), cursive;
+    color: var(--primary-text);
+    font-size: clamp(3rem, 8vw, 5.75rem);
+    line-height: 0.9;
   }
 
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
+  &__names {
+    margin: 0.25rem 0 clamp(1.5rem, 3vw, 2rem);
+
+    color: var(--primary-text);
+    font-size: clamp(3rem, 8vw, 5.8rem);
+    line-height: 0.9;
+    letter-spacing: 0.02em;
+  }
+
+  &__date {
+    margin: 0 0 clamp(1.5rem, 3vw, 2rem);
+
+    color: var(--primary-text);
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  &__details,
+  &__reception {
+    p {
+      margin: 0;
+      color: var(--primary-text);
+      line-height: 1.2;
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
+  }
+
+  &__details {
+    margin-bottom: clamp(1.25rem, 2.5vw, 1.75rem);
+
+    p:first-child,
+    p:nth-child(2) {
+      font-weight: 700;
+      font-size: clamp(1.35rem, 3vw, 2rem);
+    }
+
+    p:last-child {
+      font-size: clamp(1.2rem, 2.5vw, 1.65rem);
     }
   }
+
+  &__reception {
+    p:first-child {
+      font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+    }
+
+    p:nth-child(2) {
+      font-weight: 700;
+      font-size: clamp(1.25rem, 2.6vw, 1.75rem);
+    }
+
+    p:last-child {
+      font-size: clamp(1.1rem, 2.2vw, 1.45rem);
+    }
+  }
+
+  @media (max-width: 700px) {
+    padding: 2rem 1.25rem;
+
+    &__names {
+      font-size: clamp(2.65rem, 13vw, 4.5rem);
+    }
+
+    &__wedding-label {
+      font-size: clamp(2.75rem, 12vw, 4.5rem);
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

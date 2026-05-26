@@ -1,10 +1,26 @@
-  <div class="hero">
-    <div class="overlay"></div>
+<section class="hero">
+  <div class="hero__content">
+    <img class="hero__monogram" [src]="monogramImage" alt="" aria-hidden="true" />
 
-    <div class="content">
-      <h1 class="names">{{ title }}</h1>
-      <p class="date"> Miyerkoles </p>
-      <p class="date">{{ date }}</p>
-      <p class="location">{{ location }}</p>
+    <p class="hero__intro">{{ introLineOne }}</p>
+    <p class="hero__intro">{{ introLineTwo }}</p>
+
+    <p class="hero__wedding-label">{{ weddingLabel }}</p>
+
+    <h1 class="hero__names">{{ names }}</h1>
+
+    <p class="hero__date">{{ date }}</p>
+
+    <div class="hero__details">
+      <p>{{ dayTime }}</p>
+      <p>{{ ceremonyVenue }}</p>
+      <p>{{ ceremonyAddress }}</p>
+    </div>
+
+    <div class="hero__reception">
+      <p>{{ receptionIntro }}</p>
+      <p>{{ receptionVenue }}</p>
+      <p>{{ receptionAddress }}</p>
     </div>
   </div>
+</section>

@@ -1,19 +1,28 @@
-import { Component } from "@angular/core";
-import {CommonModule} from "@angular/common";
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: "app-hero-section",
-  imports: [CommonModule],
-  templateUrl: "./hero-section.html",
-  styleUrl: "./hero-section.scss",
+  selector: 'app-hero-section',
+  imports: [],
+  templateUrl: './hero-section.html',
+  styleUrl: './hero-section.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeroSection {
-  readonly backgroundStyle = {
-    backgroundImage: `url(assets/images/hero-bg.png)`
-  };
+  readonly monogramImage = 'assets/images/monogram.png';
 
-  readonly title = 'Daniel at Patricia';
-  readonly date = 'Enero 20, 2027 • 1:30 ng Hapon';
-  readonly location = 'Our Lady of Mt. Carmel Parish\n' +
-    '          Sabang, Baliuag, Bulacan';
+  readonly introLineOne = 'Sa wakas!';
+  readonly introLineTwo = 'Ikaw ay malugod na iniimbitahan sa';
+
+  readonly weddingLabel = 'Kasalang';
+  readonly names = 'DANIEL & PATRICIA';
+
+  readonly date = 'Enero 20, 2027';
+
+  readonly dayTime = 'Miyerkoles • 1:30 ng Hapon';
+  readonly ceremonyVenue = 'Our Lady of Mt. Carmel Parish';
+  readonly ceremonyAddress = 'Sabang, Baliuag, Bulacan';
+
+  readonly receptionIntro = 'Ito ay susundan ng salusalo sa';
+  readonly receptionVenue = 'Maravilloza Events Center';
+  readonly receptionAddress = 'Dampol, Pulilan, Bulacan';
 }

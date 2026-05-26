@@ -7,7 +7,7 @@
 }
 
 .qr {
-  @include section-background('/assets/images/backgrounds/bg-qr.webp');
+  @include section-background('../../../assets/images/backgrounds/bg-qr.webp');
 
   width: 100%;
   height: 100%;

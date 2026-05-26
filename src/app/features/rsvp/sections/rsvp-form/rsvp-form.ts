@@ -11,11 +11,12 @@ import { CommonModule } from '@angular/common';
 import { RsvpService } from '../../../../core/services/rsvp.service';
 import { Invite } from '../../rsvp.types';
 import {LoadingStore} from "../../../../core/store/loading.store";
+import {LucideAngularModule} from "lucide-angular";
 
 @Component({
   selector: 'app-rsvp-form',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, LucideAngularModule],
   templateUrl: './rsvp-form.html',
   styleUrl: './rsvp-form.scss',
 })
@@ -24,10 +25,9 @@ export class RsvpForm {
   private readonly store = inject(LoadingStore);
 
   readonly copy = {
-    submittedTitle: 'Lubos na pasasalamat 💖',
+    submittedTitle: `Lubos na pasasalamat`,
     submittedMessage: 'Ang iyong tugon ay aming natanggap.',
     welcomePrefix: 'Maligayang pagdating',
-    welcomeSuffix: '👋',
     seatsPrefix: 'May nakalaang',
     seatsSuffix: 'upuan para sa iyo',
     attendingLabel: 'Ikaw ba ay makakadalo?',
@@ -44,8 +44,7 @@ export class RsvpForm {
 
   invite = input<Invite | null>(null);
   submitted = output<void>();
-
-  // 🔥 UI state
+  
   attending = signal<boolean | null>(null);
   guestNames = signal<string[]>([]);
   message = signal('');
@@ -55,7 +54,6 @@ export class RsvpForm {
   success = signal(false);
   error = signal<string | null>(null);
 
-  // 🔥 derived
   guestCount = computed(() => this.invite()?.guests ?? 0);
 
   showGuestInputs = computed(() =>

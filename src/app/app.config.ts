@@ -4,7 +4,7 @@ import {provideRouter} from '@angular/router';
 import {routes} from './app.routes';
 import {provideClientHydration, withEventReplay} from '@angular/platform-browser';
 import {provideHttpClient} from "@angular/common/http";
-import {House, LucideAngularModule, Mail, MapPin, PenTool, Users} from "lucide-angular";
+import {Hand, Heart, House, LucideAngularModule, Mail, MapPin, PenTool, Users} from "lucide-angular";
 
 export const appConfig: ApplicationConfig = {
     providers: [
@@ -18,7 +18,9 @@ export const appConfig: ApplicationConfig = {
                 Users,
                 MapPin,
                 Mail,
-                PenTool
+                PenTool,
+                Heart,
+                Hand
             })
         )
     ]

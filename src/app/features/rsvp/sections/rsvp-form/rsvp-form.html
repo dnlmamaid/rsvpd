@@ -4,14 +4,14 @@
 
     @if (isSubmitted()) {
       <div class="rsvp-card success">
-        <h2>{{ copy.submittedTitle }}</h2>
+        <h2>{{ copy.submittedTitle }}  <lucide-icon name="heart"></lucide-icon></h2>
         <p>{{ copy.submittedMessage }}</p>
       </div>
     } @else {
 
       <div class="rsvp-card">
 
-        <h2 class="title">{{ copy.welcomePrefix }} {{ i.name }} {{ copy.welcomeSuffix }}</h2>
+        <h2 class="title">{{ copy.welcomePrefix }} {{ i.name }} <lucide-icon name="hand"></lucide-icon></h2>
 
         <p class="seats">
           {{ copy.seatsPrefix }} <strong>{{ i.guests }}</strong> {{ copy.seatsSuffix }}

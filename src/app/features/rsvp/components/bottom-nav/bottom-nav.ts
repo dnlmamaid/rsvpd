@@ -24,7 +24,7 @@ export class BottomNav implements AfterViewInit {
     {
       id: 'attire', icon: 'users'
     },
-    { id: 'rsvp', icon: 'mail' },
+    { id: 'rsvp', icon: 'pen-tool' },
   ];
 
   readonly sections = this.items.map(item => item.id);

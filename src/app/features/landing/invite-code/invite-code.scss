@@ -438,4 +438,28 @@
       height: 64px;
     }
   }
+
+  .code-area {
+    top: 73%;
+    width: min(52%, 300px);
+  }
+
+  .invite-input {
+    position: relative;
+    z-index: 1;
+
+    padding-top: 3.2rem;
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+  }
+
+  .code-label {
+    margin-top: 0.65rem;
+    font-size: 0.82rem;
+    line-height: 1.2;
+  }
+
+  .seal-button {
+    top: 48%;
+  }
 }

@@ -417,49 +417,42 @@
   }
 }
 
-
 @media (max-width: 768px) {
-  .envelope {
-    width: min(96vw, 620px);
-  }
+  .landing {
+    .envelope {
+      width: min(96vw, 620px);
 
-  .card {
-    padding:
-            1.75rem
-            1.5rem;
-  }
+      .seal-button {
+        top: 45%;
+        width: 82px;
+        height: 82px;
 
-  .seal-button {
-    width: 82px;
-    height: 82px;
+        &::before {
+          width: 64px;
+          height: 64px;
+        }
+      }
 
-    &::before {
-      width: 64px;
-      height: 64px;
+      .code-area {
+        top: 82%;
+        width: min(58%, 320px);
+      }
+
+      .invite-input {
+        padding-top: 0;
+        font-size: 1rem;
+        letter-spacing: 0.2em;
+      }
+
+      .code-label {
+        margin-top: 0.65rem;
+        font-size: 0.82rem;
+        line-height: 1.2;
+      }
+
+      .card {
+        padding: 1.75rem 1.5rem;
+      }
     }
-  }
-
-  .code-area {
-    top: 73%;
-    width: min(52%, 300px);
-  }
-
-  .invite-input {
-    position: relative;
-    z-index: 1;
-
-    padding-top: 3.2rem;
-    font-size: 1rem;
-    letter-spacing: 0.2em;
-  }
-
-  .code-label {
-    margin-top: 0.65rem;
-    font-size: 0.82rem;
-    line-height: 1.2;
-  }
-
-  .seal-button {
-    top: 48%;
   }
 }

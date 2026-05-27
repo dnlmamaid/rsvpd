@@ -27,7 +27,7 @@ export class LocationSection {
       label: 'Seremonya',
       name: 'Our Lady of Mt. Carmel Parish',
       image: 'assets/images/church-carmel.png',
-      address: 'Sabang, Baliwag, Bulacan',
+      address: 'Sabang, Baliuag, Bulacan',
       maps: 'https://maps.app.goo.gl/bAYzQcj3xDUmVLBz6',
     },
     {

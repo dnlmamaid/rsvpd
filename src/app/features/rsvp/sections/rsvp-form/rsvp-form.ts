@@ -30,6 +30,7 @@ export class RsvpForm {
     welcomePrefix: 'Maligayang pagdating',
     seatsPrefix: 'May nakalaang',
     seatsSuffix: 'upuan para sa iyo',
+    seatsSuffix2: 'upuan para sa inyo',
     attendingLabel: 'Ikaw ba ay makakadalo?',
     acceptLabel: 'Oo, makakadalo ako',
     declineLabel: 'Hindi ako makakadalo',
@@ -57,7 +58,9 @@ export class RsvpForm {
   guestCount = computed(() => this.invite()?.guests ?? 0);
 
   showGuestInputs = computed(() =>
-    this.attending() === true && this.guestCount() > 1
+    this.attending() === true &&
+    this.guestCount() > 1 &&
+    !this.isCoupleInvite()
   );
 
   isSubmitted = computed(() => this.invite()?.used === true);
@@ -66,6 +69,10 @@ export class RsvpForm {
     this.attending() !== null &&
     !this.isSubmitted() &&
     !this.loading()
+  );
+
+  readonly isCoupleInvite = computed(() =>
+    /\s*&\s*/.test(this.invite()?.name ?? '')
   );
 
   // 🔥 initialize guests ONCE per invite

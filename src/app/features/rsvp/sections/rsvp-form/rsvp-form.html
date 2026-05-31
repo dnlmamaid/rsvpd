@@ -14,7 +14,14 @@
         <h2 class="title">{{ copy.welcomePrefix }} {{ i.name }} <lucide-icon name="hand"></lucide-icon></h2>
 
         <p class="seats">
-          {{ copy.seatsPrefix }} <strong>{{ i.guests }}</strong> {{ copy.seatsSuffix }}
+          {{ copy.seatsPrefix }} <strong>{{ i.guests }}</strong>
+          @if (isCoupleInvite())
+          {
+            {{ copy.seatsSuffix2 }}
+          }
+          @else {
+            {{ copy.seatsSuffix }}
+          }
         </p>
 
         <!-- Attending -->

@@ -8,8 +8,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeroSection {
-  readonly monogramImage = 'assets/images/monogram.png';
-
   readonly introLineOne = 'Sa wakas!';
   readonly introLineTwo = 'Ikaw ay malugod na iniimbitahan sa';
 

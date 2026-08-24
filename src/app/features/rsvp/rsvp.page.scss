@@ -33,3 +33,40 @@
     background:var(--tertiary-bg);
   }
 }
+
+.container > section {
+  position: relative;
+  isolation: isolate;
+
+  .section-footer-mark {
+    position: absolute;
+    right: clamp(1.5rem, 6vw, 7rem);
+    bottom: clamp(0.5rem, 1.5vh, 1rem);
+    z-index: 3;
+
+    width: clamp(220px, 28vw, 340px);
+    aspect-ratio: 2.7 / 1;
+
+    color: var(--primary-button);
+    background: currentColor;
+    opacity: 0.28;
+
+    -webkit-mask: url('../../../assets/images/ambigram-monogram-currentcolor.svg') center / auto 565% no-repeat;
+    mask: url('../../../assets/images/ambigram-monogram-currentcolor.svg') center / auto 565% no-repeat;
+
+    pointer-events: none;
+  }
+
+  > * {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+@media (max-width: 700px) {
+  .container > section .section-footer-mark {
+    right: 1rem;
+    bottom: 0.5rem;
+    width: min(52vw, 220px);
+  }
+}

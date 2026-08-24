@@ -34,10 +34,15 @@
   }
 
   &__monogram {
-    width: clamp(120px, 18vw, 220px);
-    height: auto;
-    margin-bottom: clamp(1rem, 2vw, 1.5rem);
+    width: clamp(180px, 28vw, 300px);
+    height: clamp(68px, 10vw, 108px);
+    margin-bottom: clamp(0.75rem, 1.5vw, 1.25rem);
     display: block;
+
+    color: var(--primary-text);
+    background: currentColor;
+    -webkit-mask: url('../../../../../assets/images/ambigram-monogram-currentcolor.svg') center / auto 565% no-repeat;
+    mask: url('../../../../../assets/images/ambigram-monogram-currentcolor.svg') center / auto 565% no-repeat;
   }
 
   &__intro {

@@ -1,10 +1,25 @@
 <div class="page-shell">
   <div class="container">
-    <section id="hero"><app-hero-section /></section>
-    <section id="location"><app-location-section /></section>
-    <section id="program"><app-program-section /></section>
-    <section id="attire"><app-attire-section [invite]="invite()" /></section>
-    <section id="faq"><app-faq-section /></section>
+    <section id="hero">
+      <app-hero-section />
+      <span class="section-footer-mark" aria-hidden="true"></span>
+    </section>
+    <section id="location">
+      <app-location-section />
+      <span class="section-footer-mark" aria-hidden="true"></span>
+    </section>
+    <section id="program">
+      <app-program-section />
+      <span class="section-footer-mark" aria-hidden="true"></span>
+    </section>
+    <section id="attire">
+      <app-attire-section [invite]="invite()" />
+      <span class="section-footer-mark" aria-hidden="true"></span>
+    </section>
+    <section id="faq">
+      <app-faq-section />
+      <span class="section-footer-mark" aria-hidden="true"></span>
+    </section>
     <section id="rsvp">
       @if (loading()) {
         <p class="center">{{ loadingLabel }}</p>
@@ -18,13 +33,16 @@
           (submitted)="onSubmitted()"
         />
       }
+      <span class="section-footer-mark" aria-hidden="true"></span>
     </section>
 
     <section id="qr">
       <app-qr-section />
+      <span class="section-footer-mark" aria-hidden="true"></span>
     </section>
     <section id="reminders">
       <app-reminders-section/>
+      <span class="section-footer-mark" aria-hidden="true"></span>
     </section>
   </div>
 

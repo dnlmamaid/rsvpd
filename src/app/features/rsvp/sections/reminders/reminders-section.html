@@ -1,15 +1,19 @@
 <section class="reminders">
   <div class="reminders-container">
     <div class="reminders-grid">
-      <div class="couple-photo" [ngStyle]="coupleImage" aria-hidden="true"></div>
+      <img
+        class="couple-photo"
+        src="assets/images/dan-pat.jpg"
+        alt=""
+        aria-hidden="true"
+      />
 
       <div class="reminders-card">
         <h2 class="title">{{ title }}</h2>
 
         <p class="lead">
-          @for (line of leadLines; track line) {
-            {{ line }}@if (!$last) { <br /> }
-          }
+          @for (line of leadLines; track line) { {{ line }}@if (!$last) { <br />
+          } }
         </p>
         <p class="assist">{{assist}}</p>
         <p class="closing">{{closing}}</p>

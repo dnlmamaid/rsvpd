@@ -1,5 +1,6 @@
 <div class="page-shell">
   <div class="container">
+    @if (!declinedInvite()) {
     <section id="hero">
       <app-hero-section />
       <span class="section-footer-mark" aria-hidden="true"></span>
@@ -20,18 +21,14 @@
       <app-faq-section />
       <span class="section-footer-mark" aria-hidden="true"></span>
     </section>
+    }
     <section id="rsvp">
       @if (loading()) {
-        <p class="center">{{ loadingLabel }}</p>
-      }
-      @if (error()) {
-        <p class="error">{{ error() }}</p>
-      }
-      @if (invite(); as inviteData) {
-        <app-rsvp-form
-          [invite]="inviteData"
-          (submitted)="onSubmitted()"
-        />
+      <p class="center">{{ loadingLabel }}</p>
+      } @if (error()) {
+      <p class="error">{{ error() }}</p>
+      } @if (invite(); as inviteData) {
+      <app-rsvp-form [invite]="inviteData" (submitted)="onSubmitted($event)" />
       }
       <span class="section-footer-mark" aria-hidden="true"></span>
     </section>
@@ -41,10 +38,10 @@
       <span class="section-footer-mark" aria-hidden="true"></span>
     </section>
     <section id="reminders">
-      <app-reminders-section/>
+      <app-reminders-section />
       <span class="section-footer-mark" aria-hidden="true"></span>
     </section>
   </div>
 
-  <app-bottom-nav />
+  <app-bottom-nav [declined]="declinedInvite()" />
 </div>

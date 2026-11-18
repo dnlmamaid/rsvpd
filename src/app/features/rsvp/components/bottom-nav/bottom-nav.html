@@ -1,15 +1,16 @@
 <nav class="bottom-nav">
-    @for (item of items; track item.id) {
-        <button (click)="scrollTo(item.id)" [class.active]="active() === item.id">
-            @if (item.icon) {
-                <lucide-icon [name]="item.icon"></lucide-icon>
-            }
-            @if (item.image) {
-              <app-custom-icon
-                [src]="item.image"
-                [size]="34"
-              />
-            }
-        </button>
+  @for (item of items(); track item.id) {
+  <button
+    type="button"
+    [attr.aria-label]="item.label"
+    (click)="scrollTo(item.id)"
+    [class.active]="active() === item.id"
+  >
+    @if (item.icon) {
+    <lucide-icon [name]="item.icon"></lucide-icon>
+    } @if (item.image) {
+    <app-custom-icon [src]="item.image" [size]="34" />
     }
+  </button>
+  }
 </nav>
